@@ -815,29 +815,49 @@
       }
     }
 
-    .client-pill {
-      background-color: var(--color-white);
-      border: 1px solid var(--color-border);
-      padding: 22px 14px;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-serif);
-      font-size: 1.15rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      color: var(--color-primary);
-      box-shadow: var(--shadow-subtle);
-      transition: var(--transition-standard);
-    }
+  .client-pill {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  padding: 16px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 110px;
+  box-shadow: var(--shadow-subtle);
+  transition: var(--transition-standard);
+}
 
-    .client-pill:hover {
-      border-color: var(--color-gold);
-      background-color: var(--color-ivory);
-      transform: translateY(-2px);
-    }
+.client-pill:hover {
+  border-color: var(--color-gold);
+  background-color: var(--color-ivory);
+  transform: translateY(-2px);
+}
 
+.client-logo-img {
+  max-height: 48px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.85;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.client-pill:hover .client-logo-img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.client-pill-name {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+}
     /* Timeline Component for Workflow / Approach / Cleaning Stage */
     .timeline-wrap {
       position: relative;
@@ -2797,15 +2817,38 @@
                     </p>
                   </div>
 
-                  <!-- Supplied Client Names Grid -->
-                  <div class="client-grid" style="margin-bottom: 36px;">
-                    <div class="client-pill">AFCONS</div>
-                    <div class="client-pill">SHAPOORJI PALLONJI</div>
-                    <div class="client-pill">DMART</div>
-                    <div class="client-pill">MOVIE TIMES</div>
-                    <div class="client-pill">MAYFAIR HOUSING</div>
-                    <div class="client-pill">HIRANANDANI</div>
-                  </div>
+                <!-- Supplied Client Names Grid -->
+<div class="client-grid" style="margin-bottom: 36px;">
+  <div class="client-pill">
+    <img src="images/afcons.png" alt="Afcons Infrastructure" class="client-logo-img" loading="lazy">
+    <span class="client-pill-name">AFCONS</span>
+  </div>
+
+  <div class="client-pill">
+    <img src="images/Shapoorji_Pallonji_Group_logo.svg" alt="Shapoorji Pallonji" class="client-logo-img" loading="lazy">
+    <span class="client-pill-name">SHAPOORJI PALLONJI</span>
+  </div>
+
+  <div class="client-pill">
+    <img src="images/DMart-Avenue-Supermarts-Logo-Vector.svg-.png" alt="DMart" class="client-logo-img" loading="lazy">
+    <span class="client-pill-name">DMART</span>
+  </div>
+
+  <div class="client-pill">
+    <img src="images/Movietime_Cinemas_Logo1.jpg" alt="Movie Time Cinemas" class="client-logo-img" loading="lazy">
+    <span class="client-pill-name">MOVIE TIME</span>
+  </div>
+
+  <div class="client-pill">
+    <img src="images/images.png" alt="Mayfair Housing" class="client-logo-img" loading="lazy">
+    <span class="client-pill-name">MAYFAIR HOUSING</span>
+  </div>
+
+  <div class="client-pill">
+    <img src="images/HOH_Horizontal_Logo_Left_Aligned_with_TM Mark-01.jpg" alt="Hiranandani" class="client-logo-img" loading="lazy">
+    <span class="client-pill-name">HIRANANDANI</span>
+  </div>
+</div>
 
                   <div style="text-align: center; margin-bottom: 56px;">
                     <p style="font-style: italic; font-family: var(--font-serif); font-size: 1.25rem; color: var(--color-gold-muted);">
