@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Aarhat Group LLP | Integrated Facility Solutions</title>
-  <meta name="description" content="Aarhat Group LLP is an integrated facility solutions company delivering professional housekeeping, deep cleaning, and facility support across Mumbai and Maharashtra. One Team • One Responsibility • One Cost.">
+  <meta name="description" content="Aarhat Group LLP is an integrated facility solutions company delivering professional housekeeping, deep cleaning, pest control, hard maintenance, and facility support across Mumbai and Maharashtra. One Team • One Responsibility • One Cost.">
   <meta name="author" content="Aarhat Group LLP">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,9 +33,8 @@
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       
-     /* Change header heights if needed to fit the larger logo */
---header-height: 96px;           /* was 84px */
---header-height-compact: 80px;   /* was 72px */
+      --header-height: 96px;
+      --header-height-compact: 80px;
       --transition-standard: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       --transition-page: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1), transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
       
@@ -60,8 +59,6 @@
       background-color: var(--color-ivory);
       color: var(--color-text-dark);
     }
-
-
 
     body {
       font-family: var(--font-sans);
@@ -277,13 +274,6 @@
       background: var(--color-gold);
     }
 
-    .gold-grid-pattern {
-      background-image: 
-        radial-gradient(rgba(201, 164, 73, 0.12) 1px, transparent 0),
-        linear-gradient(to right, rgba(201, 164, 73, 0.05) 1px, transparent 1px);
-      background-size: 32px 32px, 64px 64px;
-    }
-
     /* ==========================================================================
        GLOBAL STICKY HEADER & NAVIGATION
        ========================================================================== */
@@ -323,18 +313,17 @@
     }
 
     .brand-logo-img {
-  height: 68px;                  /* was 52px */
-  width: auto;
-  max-width: 260px;              /* was 190px */
-  object-fit: contain;
-  transition: height 0.25s ease;
-}
+      height: 68px;
+      width: auto;
+      max-width: 260px;
+      object-fit: contain;
+      transition: height 0.25s ease;
+    }
 
-.site-header.scrolled .brand-logo-img {
-  height: 54px;                  /* was 44px */
-}
+    .site-header.scrolled .brand-logo-img {
+      height: 54px;
+    }
 
-    /* Fallback / supplemental brand tag for accessibility */
     .brand-logo-wrap span.sr-only {
       position: absolute;
       width: 1px;
@@ -572,7 +561,7 @@
       padding-bottom: clamp(40px, 5vw, 64px);
     }
 
-    /* Dark & Light Sections */
+    /* Background Utility Colors */
     .bg-dark-forest {
       background-color: var(--color-primary-dark);
       color: var(--color-cream);
@@ -593,7 +582,7 @@
       background-color: var(--color-ivory);
     }
 
-    /* Page Header Banner (For Internal Pages) */
+    /* Page Header Banner (Internal Pages) */
     .page-hero {
       background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
       color: var(--color-cream);
@@ -707,18 +696,19 @@
       }
     }
 
-    /* Editorial Cards */
+    /* ==========================================================================
+       SERVICE CARDS WITH INTEGRATED PHOTOGRAPHS
+       ========================================================================== */
     .service-card {
       background-color: var(--color-white);
       border: 1px solid var(--color-border);
-      padding: clamp(24px, 3vw, 32px);
       position: relative;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 260px;
       transition: var(--transition-standard);
       border-top: 3px solid transparent;
+      overflow: hidden;
     }
 
     .service-card:hover {
@@ -727,26 +717,54 @@
       box-shadow: var(--shadow-elevated);
     }
 
+    .service-card-img-wrap {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      position: relative;
+      background-color: var(--color-primary-dark);
+    }
+
+    .service-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease, filter 0.4s ease;
+      filter: brightness(0.95);
+    }
+
+    .service-card:hover .service-card-img {
+      transform: scale(1.08);
+      filter: brightness(1);
+    }
+
+    .service-card-body {
+      padding: clamp(20px, 2.5vw, 26px);
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
     .service-card-num {
       font-family: var(--font-serif);
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: var(--color-gold-muted);
       line-height: 1;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
 
     .service-card-title {
       font-family: var(--font-serif);
-      font-size: 1.45rem;
+      font-size: 1.35rem;
       font-weight: 600;
       color: var(--color-primary);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       line-height: 1.25;
     }
 
     .service-card-desc {
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       color: var(--color-text-soft);
       line-height: 1.6;
       margin-bottom: 20px;
@@ -757,11 +775,12 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--color-primary);
+      margin-top: auto;
     }
 
     .service-card-link svg {
@@ -818,50 +837,51 @@
       }
     }
 
-  .client-pill {
-  background-color: var(--color-white);
-  border: 1px solid var(--color-border);
-  padding: 16px 20px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  min-height: 110px;
-  box-shadow: var(--shadow-subtle);
-  transition: var(--transition-standard);
-}
+    .client-pill {
+      background-color: var(--color-white);
+      border: 1px solid var(--color-border);
+      padding: 16px 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 110px;
+      box-shadow: var(--shadow-subtle);
+      transition: var(--transition-standard);
+    }
 
-.client-pill:hover {
-  border-color: var(--color-gold);
-  background-color: var(--color-ivory);
-  transform: translateY(-2px);
-}
+    .client-pill:hover {
+      border-color: var(--color-gold);
+      background-color: var(--color-ivory);
+      transform: translateY(-2px);
+    }
 
-.client-logo-img {
-  max-height: 48px;
-  width: auto;
-  max-width: 100%;
-  object-fit: contain;
-  filter: grayscale(100%);
-  opacity: 0.85;
-  transition: filter 0.3s ease, opacity 0.3s ease;
-}
+    .client-logo-img {
+      max-height: 48px;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.85;
+      transition: filter 0.3s ease, opacity 0.3s ease;
+    }
 
-.client-pill:hover .client-logo-img {
-  filter: grayscale(0%);
-  opacity: 1;
-}
+    .client-pill:hover .client-logo-img {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
 
-.client-pill-name {
-  font-family: var(--font-serif);
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: var(--color-primary);
-}
-    /* Timeline Component for Workflow / Approach / Cleaning Stage */
+    .client-pill-name {
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--color-primary);
+    }
+
+    /* Timeline Component */
     .timeline-wrap {
       position: relative;
       margin-top: 36px;
@@ -922,7 +942,7 @@
       line-height: 1.6;
     }
 
-    /* Information Table / Glances */
+    /* Glance Table & Director Avatar */
     .glance-table {
       width: 100%;
       border-collapse: collapse;
@@ -930,32 +950,32 @@
     }
 
     .director-cell {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
 
-.director-avatar-wrap {
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid var(--color-gold);
-  box-shadow: 0 2px 8px rgba(0, 43, 36, 0.14);
-  flex-shrink: 0;
-  position: relative;
-}
+    .director-avatar-wrap {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--color-gold);
+      box-shadow: 0 2px 8px rgba(0, 43, 36, 0.14);
+      flex-shrink: 0;
+      position: relative;
+    }
 
-.director-avatar {
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  object-fit: cover !important;
-  object-position: center 20%; /* Centers on the face */
-  transform: scale(2.2);       /* Increase to 1.8 or 2.0 to zoom in more */
-  transform-origin: center center;
-  display: block;
-}
+    .director-avatar {
+      width: 100% !important;
+      height: 100% !important;
+      max-width: none !important;
+      object-fit: cover !important;
+      object-position: center 20%;
+      transform: scale(2.2);
+      transform-origin: center center;
+      display: block;
+    }
 
     .glance-table tr {
       border-bottom: 1px solid var(--color-border);
@@ -1116,13 +1136,11 @@
       }
     }
 
-    /* 404 View */
     .not-found-box {
       text-align: center;
       padding: clamp(60px, 10vw, 120px) 20px;
     }
 
-    /* Accessibility for reduced motion */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -1174,12 +1192,11 @@
   <div class="mobile-menu-overlay" id="mobileMenuOverlay" aria-hidden="true"></div>
   <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation Menu" aria-hidden="true">
     <div class="mobile-drawer-header">
-    <!-- Change height: 38px to height: 50px -->
-<img 
-  src="images/Screenshot_2026-09-28-15-56-04-29_e2d5b3f32b79de1d45acd1fad96fbb0f~2.jpg" 
-  alt="Aarhat Group Logo" 
-  style="height: 50px; width: auto;"
->
+      <img 
+        src="images/Screenshot_2026-09-28-15-56-04-29_e2d5b3f32b79de1d45acd1fad96fbb0f~2.jpg" 
+        alt="Aarhat Group Logo" 
+        style="height: 50px; width: auto;"
+      >
       <button type="button" id="mobileDrawerClose" aria-label="Close navigation menu" style="padding: 6px; font-size: 1.4rem; color: var(--color-primary); cursor: pointer;">
         ✕
       </button>
@@ -1219,12 +1236,11 @@
       <div class="footer-grid">
         <!-- Col 1 -->
         <div>
-          <!-- Change height: 48px to height: 60px -->
-<img 
-  src="images/Screenshot_2026-09-28-15-56-04-29_e2d5b3f32b79de1d45acd1fad96fbb0f~2.jpg" 
-  alt="Aarhat Group LLP" 
-  style="height: 60px; width: auto; margin-bottom: 16px; background-color: #FAF7EF; padding: 4px; border-radius: 2px;"
->
+          <img 
+            src="images/Screenshot_2026-09-28-15-56-04-29_e2d5b3f32b79de1d45acd1fad96fbb0f~2.jpg" 
+            alt="Aarhat Group LLP" 
+            style="height: 60px; width: auto; margin-bottom: 16px; background-color: #FAF7EF; padding: 4px; border-radius: 2px;"
+          >
           <div style="font-family: var(--font-serif); font-size: 1.15rem; font-weight: 700; color: var(--color-white); margin-bottom: 4px;">
             AARHAT GROUP LLP
           </div>
@@ -1258,13 +1274,15 @@
           <h4 class="footer-col-title">Key Services</h4>
           <ul class="footer-links-list">
             <li><a href="#/service/housekeeping">Housekeeping & Deep Cleaning</a></li>
-            <li><a href="#/service/one-time">One-Time & Event Cleaning</a></li>
-            <li><a href="#/service/post-construction">Post-Construction Cleaning</a></li>
-            <li><a href="#/service/mechanised">Mechanised Cleaning</a></li>
+            <li><a href="#/service/drivers">Chauffeur & Driver Services</a></li>
+            <li><a href="#/service/laundry">Laundry & Linen Care</a></li>
+            <li><a href="#/service/fumigation">Fumigation & Fogging</a></li>
+            <li><a href="#/service/termites">Anti-Termite Treatment</a></li>
+            <li><a href="#/service/electrical">Electrical Maintenance</a></li>
+            <li><a href="#/service/plumbing">Plumbing Support</a></li>
+            <li><a href="#/service/carpentry">Carpentry & Joinery</a></li>
+            <li><a href="#/service/bms">Building Management</a></li>
             <li><a href="#/service/facade">Façade & Rope Access</a></li>
-            <li><a href="#/service/pest-control">Pest Management</a></li>
-            <li><a href="#/service/manpower">Manpower Support</a></li>
-            <li><a href="#/service/technical">Technical Support</a></li>
           </ul>
         </div>
 
@@ -1310,6 +1328,23 @@
     (function () {
       "use strict";
 
+      // Helper function to render a structured service card with photo
+      function renderServiceCard(num, title, desc, link, imgSrc, imgAlt) {
+        return `
+          <div class="service-card">
+            <div class="service-card-img-wrap">
+              <img src="${imgSrc}" alt="${imgAlt}" class="service-card-img" loading="lazy">
+            </div>
+            <div class="service-card-body">
+              <div class="service-card-num">${num}</div>
+              <h3 class="service-card-title">${title}</h3>
+              <p class="service-card-desc">${desc}</p>
+              <a href="${link}" class="service-card-link">View Service <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        `;
+      }
+
       // -----------------------------------------------------------------------
       // PAGE CONTENT ROUTE DEFINITIONS
       // -----------------------------------------------------------------------
@@ -1334,7 +1369,7 @@
                         Professional housekeeping, cleaning and facility support for spaces that need to stay clean, safe and well maintained.
                       </p>
                       <p class="lead-text on-dark" style="margin-bottom: 32px;">
-                        Aarhat Group LLP is an integrated facility solutions company focused on professional housekeeping and allied support services for commercial, residential, retail, hospitality and construction environments across Mumbai and Maharashtra.
+                        Aarhat Group LLP is an integrated facility solutions company focused on professional housekeeping, hard & soft technical services, and allied support across Mumbai and Maharashtra.
                       </p>
                       <div style="display: flex; flex-wrap: wrap; gap: 14px;">
                         <a href="#/contact" class="btn btn-gold">REQUEST A SITE ASSESSMENT</a>
@@ -1363,15 +1398,15 @@
                   <div class="trust-items-row">
                     <span>HOUSEKEEPING</span>
                     <span class="trust-dot">•</span>
-                    <span>DEEP CLEANING</span>
+                    <span>HARD SERVICES</span>
                     <span class="trust-dot">•</span>
-                    <span>FACILITY SUPPORT</span>
+                    <span>PEST & FUMIGATION</span>
                     <span class="trust-dot">•</span>
-                    <span>SPECIALISED CLEANING</span>
+                    <span>OFFICE & DRIVER SUPPORT</span>
                     <span class="trust-dot">•</span>
-                    <span>MANPOWER</span>
+                    <span>FAÇADE CLEANING</span>
                     <span class="trust-dot">•</span>
-                    <span>MAINTENANCE</span>
+                    <span>BUILDING MANAGEMENT</span>
                   </div>
                 </div>
               </div>
@@ -1398,10 +1433,10 @@
                         "One team. One responsibility. One cost."
                       </div>
                       <p style="font-size: 1rem; color: var(--color-text-dark); line-height: 1.65; margin-bottom: 14px;">
-                        Aarhat Group LLP is an integrated facility solutions company focused on professional housekeeping and allied support services for commercial, residential, retail, hospitality and construction environments across Mumbai and Maharashtra.
+                        Aarhat Group LLP is an integrated facility solutions company focused on complete facility operations, from daily soft upkeep and executive staffing to engineering repairs and high-rise envelope care.
                       </p>
                       <p class="lead-text" style="font-size: 0.96rem; margin-bottom: 28px;">
-                        A single accountable partner for cleaning, housekeeping and support services, with clear reporting and predictable pricing. We eliminate the friction of juggling multiple disjointed contractors.
+                        A single accountable partner for cleaning, pest management, technical trades, and support services. We eliminate the friction of juggling multiple disjointed contractors.
                       </p>
                       <a href="#/about" class="btn btn-primary">ABOUT AARHAT GROUP</a>
                     </div>
@@ -1418,90 +1453,27 @@
                       COMPLETE FACILITY SUPPORT,<br>UNDER ONE ROOF.
                     </h2>
                     <p class="lead-text" style="margin: 0 auto;">
-                      Comprehensive operational hygiene, staff deployment and mechanised upkeep structured around your working hours and property requirements.
+                      Comprehensive hygiene, skilled technical trades, and staff deployments structured around your facility's operational hours.
                     </p>
                   </div>
 
                   <div class="editorial-grid-4">
-                    <!-- Service 01 -->
-                    <div class="service-card">
-                      <div>
-                        <div class="service-card-num">01</div>
-                        <h3 class="service-card-title">Housekeeping & Deep Cleaning</h3>
-                        <p class="service-card-desc">Scheduled daily upkeep, floor care, restroom hygiene and periodic deep sanitisation.</p>
-                      </div>
-                      <a href="#/service/housekeeping" class="service-card-link">View Service <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                    </div>
-
-                    <!-- Service 02 -->
-                    <div class="service-card">
-                      <div>
-                        <div class="service-card-num">02</div>
-                        <h3 class="service-card-title">One-Time Cleaning</h3>
-                        <p class="service-card-desc">Move-in/out deep cleans, seasonal refresh drives, pre/post event venue preparation.</p>
-                      </div>
-                      <a href="#/service/one-time" class="service-card-link">View Service <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                    </div>
-
-                    <!-- Service 03 -->
-                    <div class="service-card">
-                      <div>
-                        <div class="service-card-num">03</div>
-                        <h3 class="service-card-title">Post-Construction Cleaning</h3>
-                        <p class="service-card-desc">Cement, paint, debris removal and machine scrubbing for pristine project handover.</p>
-                      </div>
-                      <a href="#/service/post-construction" class="service-card-link">View Service <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                    </div>
-
-                    <!-- Service 04 -->
-                    <div class="service-card">
-                      <div>
-                        <div class="service-card-num">04</div>
-                        <h3 class="service-card-title">Mechanised Cleaning</h3>
-                        <p class="service-card-desc">High-pressure washing, single-disc polishers and heavy auto-scrubbers for large floorplates.</p>
-                      </div>
-                      <a href="#/service/mechanised" class="service-card-link">View Service <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                    </div>
-
-                    <!-- Service 05 -->
-                    <div class="service-card">
-                      <div>
-                        <div class="service-card-num">05</div>
-                        <h3 class="service-card-title">Façade & Rope Access</h3>
-                        <p class="service-card-desc">Certified high-rise exterior glass and curtain wall cleaning with safety compliance.</p>
-                      </div>
-                      <a href="#/service/facade" class="service-card-link">View Service <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                    </div>
-
-                    <!-- Service 06 -->
-                    <div class="service-card">
-                      <div>
-                        <div class="service-card-num">06</div>
-                        <h3 class="service-card-title">Pest Control</h3>
-                        <p class="service-card-desc">Systematic inspection, approved chemical treatment and scheduled preventive protection.</p>
-                      </div>
-                      <a href="#/service/pest-control" class="service-card-link">View Service <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                    </div>
-
-                    <!-- Service 07 -->
-                    <div class="service-card">
-                      <div>
-                        <div class="service-card-num">07</div>
-                        <h3 class="service-card-title">Manpower & Office Support</h3>
-                        <p class="service-card-desc">Verified, uniformed staff, office boys, pantry helpers and on-site supervisor teams.</p>
-                      </div>
-                      <a href="#/service/manpower" class="service-card-link">View Service <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                    </div>
-
-                    <!-- Service 08 -->
-                    <div class="service-card">
-                      <div>
-                        <div class="service-card-num">08</div>
-                        <h3 class="service-card-title">Technical Support</h3>
-                        <p class="service-card-desc">Routine maintenance, minor repairs, checklist audits and structured site coordination.</p>
-                      </div>
-                      <a href="#/service/technical" class="service-card-link">View Service <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                    </div>
+                    ${renderServiceCard("01", "Housekeeping & Deep Cleaning", "Scheduled daily upkeep, floor care, restroom hygiene and periodic sanitisation.", "#/service/housekeeping", "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=700&q=80", "Housekeeping and deep cleaning")}
+                    ${renderServiceCard("02", "Office Boys & Pantry Staff", "Attentive pantry assistants, office boys, and runners for day-to-day administrative ease.", "#/service/manpower", "https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=700&q=80", "Office boy and pantry support")}
+                    ${renderServiceCard("03", "Professional Chauffeurs & Drivers", "Vetted, disciplined commercial and executive drivers for corporate fleets and site mobility.", "#/service/drivers", "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=700&q=80", "Professional driver service")}
+                    ${renderServiceCard("04", "Laundry & Linen Management", "Commercial-grade linen care, uniforms processing, and hygienic batch washing solutions.", "#/service/laundry", "https://images.unsplash.com/photo-1545173168-9f1947eebb7f?auto=format&fit=crop&w=700&q=80", "Commercial laundry and linen care")}
+                    ${renderServiceCard("05", "Pest & Rodent Management", "Systematic barrier inspections, approved odorless treatments, and targeted rodent control stations.", "#/service/pest-control", "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&w=700&q=80", "Pest control technician at work")}
+                    ${renderServiceCard("06", "Fumigation & Fogging", "Ultra-low volume thermal fogging and disinfestation for large warehouses and high-traffic areas.", "#/service/fumigation", "https://images.unsplash.com/photo-1584634731339-252c581abfc5?auto=format&fit=crop&w=700&q=80", "Fumigation and fogging")}
+                    ${renderServiceCard("07", "Anti-Termite Treatment", "Pre and post-construction chemical barriers, drilling, and wood preservation treatments.", "#/service/termites", "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=700&q=80", "Termite protection and site inspection")}
+                    ${renderServiceCard("08", "Electrical Support & Maintenance", "Certified technicians managing HT/LT distribution panels, load testing, and fixture upgrades.", "#/service/electrical", "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=700&q=80", "Electrician maintenance")}
+                    ${renderServiceCard("09", "Plumbing & Drainage Care", "Preventive pipe maintenance, booster pump servicing, clearing blockages, and drainage audits.", "#/service/plumbing", "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=700&q=80", "Professional plumbing maintenance")}
+                    ${renderServiceCard("10", "Carpentry & Joinery Works", "Hardware snagging, furniture restoration, door hinge adjustments, and custom woodwork.", "#/service/carpentry", "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=700&q=80", "Carpentry and furniture joinery")}
+                    ${renderServiceCard("11", "Building Management (BMS)", "Integrated monitoring of HVAC, fire suppression, security systems, and daily infrastructure.", "#/service/bms", "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=700&q=80", "Modern building architecture management")}
+                    ${renderServiceCard("12", "Post-Construction Handover", "Heavy dust removal, cement splatter cleaning, and floor scrubbing for spotless client handovers.", "#/service/post-construction", "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=700&q=80", "Post-construction deep cleaning")}
+                    ${renderServiceCard("13", "Mechanised Deep Cleaning", "Ride-on auto scrubbers, rotary polishers, and high-pressure jet units for expansive slabs.", "#/service/mechanised", "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=700&q=80", "Industrial floor cleaning machinery")}
+                    ${renderServiceCard("14", "Façade & Rope Access", "Certified high-rise exterior glass and curtain wall washing under strict rope safety norms.", "#/service/facade", "https://images.unsplash.com/photo-1508873696983-2df5293cb395?auto=format&fit=crop&w=700&q=80", "High rise glass facade cleaning")}
+                    ${renderServiceCard("15", "One-Time & Event Turnaround", "Rapid event turnaround, pre-audit deep refreshes, and urgent mobilization crews.", "#/service/one-time", "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=700&q=80", "Event venue cleaning")}
+                    ${renderServiceCard("16", "Manpower Support & Site Coordination", "Dedicated on-site supervisors, checklist audits, and dependable shift staffing.", "#/service/technical", "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=700&q=80", "Facility maintenance audit and inspection")}
                   </div>
                 </div>
               </section>
@@ -1529,42 +1501,36 @@
                     </div>
 
                     <div>
-                      <!-- Point 1 -->
                       <div class="value-box">
                         <div class="value-box-num">01</div>
                         <h4 class="value-box-title">Single-Point Accountability</h4>
                         <p class="value-box-desc">One team, one responsibility and one cost, with no vendor juggling or diffused blame.</p>
                       </div>
 
-                      <!-- Point 2 -->
                       <div class="value-box">
                         <div class="value-box-num">02</div>
                         <h4 class="value-box-title">Trained and Supervised Workforce</h4>
                         <p class="value-box-desc">Recruited, background-checked, uniformed staff with continuous on-site supervision and daily shift logs.</p>
                       </div>
 
-                      <!-- Point 3 -->
                       <div class="value-box">
                         <div class="value-box-num">03</div>
                         <h4 class="value-box-title">Customised Solutions</h4>
                         <p class="value-box-desc">Scope, manpower allocations and shift schedules engineered specifically around your facility footprint.</p>
                       </div>
 
-                      <!-- Point 4 -->
                       <div class="value-box">
                         <div class="value-box-num">04</div>
                         <h4 class="value-box-title">Modern Equipment & Materials</h4>
                         <p class="value-box-desc">Industrial mechanised cleaning for speed, depth and consistent, high-standard finishes.</p>
                       </div>
 
-                      <!-- Point 5 -->
                       <div class="value-box">
                         <div class="value-box-num">05</div>
                         <h4 class="value-box-title">Cost-Effective and Transparent</h4>
                         <p class="value-box-desc">Clear commercial terms, optimized resource usage and zero hidden operational surprises.</p>
                       </div>
 
-                      <!-- Point 6 -->
                       <div class="value-box">
                         <div class="value-box-num">06</div>
                         <h4 class="value-box-title">Responsive Support</h4>
@@ -1667,10 +1633,10 @@
                         Integrated Housekeeping & Support Services Across Maharashtra.
                       </h2>
                       <p style="font-size: 1.05rem; line-height: 1.7; color: var(--color-text-dark); margin-bottom: 18px;">
-                        Aarhat Group LLP is an integrated facility solutions company focused on professional housekeeping and allied support services for commercial, residential, retail, hospitality and construction environments across Mumbai and Maharashtra.
+                        Aarhat Group LLP is an integrated facility solutions company focused on professional housekeeping, mechanical trades, pest management, and staffing support across Mumbai and Maharashtra.
                       </p>
                       <p style="font-size: 0.98rem; line-height: 1.7; color: var(--color-text-soft); margin-bottom: 28px;">
-                        We believe a clean, safe and well-maintained space is the foundation of every successful business. Our trained teams, structured processes and responsive supervision help clients keep their premises spotless, hygienic and welcoming, so they can focus on their core business.
+                        We believe a clean, safe and well-maintained space is the foundation of every successful business. Our trained teams, structured processes and responsive supervision help clients keep their premises spotless, hygienic and welcoming.
                       </p>
 
                       <!-- Mission and Vision Cards -->
@@ -1710,35 +1676,35 @@
                               <td class="glance-value"><strong>Aarhat Group LLP</strong><br>(Integrated Solution)</td>
                             </tr>
                             <tr>
-  <td class="glance-label">DIRECTOR</td>
-  <td class="glance-value">
-   <div class="director-cell">
-  <div class="director-avatar-wrap">
-    <img 
-      src="https://raw.githubusercontent.com/ecomaura/arihant/refs/heads/main/images/BackgroundEraser_20240717_092019168.jpg" 
-      alt="Rohit Tambe" 
-      class="director-avatar"
-      loading="lazy"
-    >
-  </div>
-  <div>
-    <strong>Rohit Tambe</strong>
-    <div style="font-size: 0.8rem; color: var(--color-text-soft);">Director & Head of Operations</div>
-  </div>
-</div>
-  </td>
-</tr>
+                              <td class="glance-label">DIRECTOR</td>
+                              <td class="glance-value">
+                                <div class="director-cell">
+                                  <div class="director-avatar-wrap">
+                                    <img 
+                                      src="https://raw.githubusercontent.com/ecomaura/arihant/refs/heads/main/images/BackgroundEraser_20240717_092019168.jpg" 
+                                      alt="Rohit Tambe" 
+                                      class="director-avatar"
+                                      loading="lazy"
+                                    >
+                                  </div>
+                                  <div>
+                                    <strong>Rohit Tambe</strong>
+                                    <div style="font-size: 0.8rem; color: var(--color-text-soft);">Director & Head of Operations</div>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
                             <tr>
                               <td class="glance-label">HEAD OFFICE</td>
                               <td class="glance-value">Office No 7, 1st Floor, Singh House, 23/25, Ambalal Doshi Marg, Opposite Stock Exchange Post office, Fort, Mumbai 400 001</td>
                             </tr>
                             <tr>
                               <td class="glance-label">CORE SERVICES</td>
-                              <td class="glance-value">Housekeeping, deep cleaning, post-construction cleaning, façade cleaning, pest control and manpower support</td>
+                              <td class="glance-value">Housekeeping, deep cleaning, hard technical trades (electrical/plumbing/carpentry), pest/fumigation control, and specialized manpower</td>
                             </tr>
                             <tr>
                               <td class="glance-label">SECTORS</td>
-                              <td class="glance-value">Construction, real estate, retail, entertainment, commercial and residential</td>
+                              <td class="glance-value">Construction, real estate, retail, entertainment, commercial, industrial, and residential</td>
                             </tr>
                             <tr>
                               <td class="glance-label">CONTACT</td>
@@ -1827,7 +1793,7 @@
 
         "/services": {
           title: "Our Services | Aarhat Group LLP",
-          metaDesc: "Comprehensive cleaning, housekeeping and facility support services delivered by Aarhat Group LLP across Mumbai and Maharashtra.",
+          metaDesc: "Comprehensive soft and hard cleaning, technical maintenance, and facility support services delivered by Aarhat Group LLP across Mumbai and Maharashtra.",
           render: function () {
             return `
               <div class="page-hero">
@@ -1835,10 +1801,10 @@
                   <div class="breadcrumbs">
                     <a href="#/">Home</a> <span>/</span> <span>Services</span>
                   </div>
-                  <div class="eyebrow on-dark">OUR SERVICES</div>
-                  <h1 class="h1-serif on-dark">A COMPLETE RANGE OF<br>CLEANING & FACILITY SUPPORT.</h1>
+                  <div class="eyebrow on-dark">OUR COMPLETE SCOPE</div>
+                  <h1 class="h1-serif on-dark">INTEGRATED FACILITY SERVICES</h1>
                   <p class="lead-text on-dark" style="margin-top:14px;">
-                    A complete range of cleaning and facility support services, delivered by one accountable team.
+                    A complete suite of housekeeping, environmental pest control, staffing, and mechanical trades delivered by one accountable management team.
                   </p>
                 </div>
               </div>
@@ -1847,86 +1813,31 @@
                 <div class="container">
                   <div class="editorial-grid-2" style="margin-bottom: 40px; align-items:flex-start;">
                     <div>
-                      <div class="eyebrow">INTEGRATED SCOPE</div>
-                      <h2 class="h2-serif">Engineered For Consistency Across Shifts.</h2>
+                      <div class="eyebrow">ONE RESPONSIBILITY</div>
+                      <h2 class="h2-serif">Precision Upkeep, Skilled Trades & Safe Environments.</h2>
                     </div>
                     <p class="lead-text">
-                      Whether you operate a residential tower, busy supermarket, multiplex or corporate park, Aarhat Group LLP provides transparently costed, supervised teams equipped with modern machinery.
+                      Whether you operate a residential society, commercial park, cinema chain, or industrial warehouse, Aarhat Group provides transparently structured contracts with verified, trained professionals.
                     </p>
                   </div>
 
-                  <div class="editorial-grid-3">
-                    <div class="service-card">
-                      <div>
-                        <div class="service-card-num">01</div>
-                        <h3 class="service-card-title">Housekeeping & Deep Cleaning</h3>
-                        <p class="service-card-desc">Scheduled daily housekeeping, restroom hygiene, floor scrubbing, pantry care and waste management.</p>
-                      </div>
-                      <a href="#/service/housekeeping" class="service-card-link">Detailed Overview <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                    </div>
-
-                    <div class="service-card">
-                      <div>
-                        <div class="service-card-num">02</div>
-                        <h3 class="service-card-title">One-Time Cleaning</h3>
-                        <p class="service-card-desc">Move-in/out deep sanitization, pre- and post-event cleanup for venues, retail drives and rapid turnaround requests.</p>
-                      </div>
-                      <a href="#/service/one-time" class="service-card-link">Detailed Overview <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                    </div>
-
-                    <div class="service-card">
-                      <div>
-                        <div class="service-card-num">03</div>
-                        <h3 class="service-card-title">Post-Construction Cleaning</h3>
-                        <p class="service-card-desc">Multi-stage cleanups removing cement residue, paint spots, tape residue and fine construction dust prior to client handover.</p>
-                      </div>
-                      <a href="#/service/post-construction" class="service-card-link">Detailed Overview <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                    </div>
-
-                    <div class="service-card">
-                      <div>
-                        <div class="service-card-num">04</div>
-                        <h3 class="service-card-title">Mechanised Cleaning</h3>
-                        <p class="service-card-desc">Industrial scrubbers, high-pressure jet units, wet-and-dry vacuuming, and polishers for large floor footprints.</p>
-                      </div>
-                      <a href="#/service/mechanised" class="service-card-link">Detailed Overview <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                    </div>
-
-                    <div class="service-card">
-                      <div>
-                        <div class="service-card-num">05</div>
-                        <h3 class="service-card-title">Façade & Rope Access Cleaning</h3>
-                        <p class="service-card-desc">High-altitude exterior curtain glass, cladding and building envelope washing using certified rope-access safety harnesses.</p>
-                      </div>
-                      <a href="#/service/facade" class="service-card-link">Detailed Overview <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                    </div>
-
-                    <div class="service-card">
-                      <div>
-                        <div class="service-card-num">06</div>
-                        <h3 class="service-card-title">Pest Control</h3>
-                        <p class="service-card-desc">Inspection-led scheduled extermination and pest-proofing for commercial properties using approved, safe formulations.</p>
-                      </div>
-                      <a href="#/service/pest-control" class="service-card-link">Detailed Overview <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                    </div>
-
-                    <div class="service-card">
-                      <div>
-                        <div class="service-card-num">07</div>
-                        <h3 class="service-card-title">Manpower & Office Support</h3>
-                        <p class="service-card-desc">Uniformed, verified housekeepers, supervisors, office boys, pantry staff and equipment operators deployed at your site.</p>
-                      </div>
-                      <a href="#/service/manpower" class="service-card-link">Detailed Overview <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                    </div>
-
-                    <div class="service-card">
-                      <div>
-                        <div class="service-card-num">08</div>
-                        <h3 class="service-card-title">Technical & Maintenance Support</h3>
-                        <p class="service-card-desc">Routine upkeep, minor repairs, checklist compliance, audits and facility liaison included in your integrated solution.</p>
-                      </div>
-                      <a href="#/service/technical" class="service-card-link">Detailed Overview <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                    </div>
+                  <div class="editorial-grid-4">
+                    ${renderServiceCard("01", "Housekeeping & Deep Cleaning", "Scheduled daily upkeep, floor care, restroom hygiene and periodic deep sanitisation.", "#/service/housekeeping", "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=700&q=80", "Housekeeping")}
+                    ${renderServiceCard("02", "Office Boys & Pantry Staff", "Verified office boys, runners, and pantry personnel ensuring workplace hospitality.", "#/service/manpower", "https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=700&q=80", "Office Boy and Pantry")}
+                    ${renderServiceCard("03", "Professional Chauffeurs & Drivers", "Experienced, verified corporate drivers and personal chauffeurs for transport logistics.", "#/service/drivers", "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=700&q=80", "Drivers & Chauffeurs")}
+                    ${renderServiceCard("04", "Laundry & Linen Management", "Commercial laundry, hygienic uniform care, and bulk linen turnover for institutions.", "#/service/laundry", "https://images.unsplash.com/photo-1545173168-9f1947eebb7f?auto=format&fit=crop&w=700&q=80", "Commercial Laundry")}
+                    ${renderServiceCard("05", "Pest & Rodent Management", "Inspection-led extermination and barrier prevention using approved odorless chemicals.", "#/service/pest-control", "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&w=700&q=80", "Pest Control")}
+                    ${renderServiceCard("06", "Fumigation & Fogging", "Disinfectant thermal fogging and misting drives for warehouses, basements, and halls.", "#/service/fumigation", "https://images.unsplash.com/photo-1584634731339-252c581abfc5?auto=format&fit=crop&w=700&q=80", "Fumigation & Fogging")}
+                    ${renderServiceCard("07", "Anti-Termite Treatment", "Comprehensive soil injection, woodwork treatment, and long-term termite eradication.", "#/service/termites", "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=700&q=80", "Anti Termites")}
+                    ${renderServiceCard("08", "Electrical Support & Maintenance", "Licensed electricians managing preventive audits, circuit repairs, and load safety.", "#/service/electrical", "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=700&q=80", "Electrician Support")}
+                    ${renderServiceCard("09", "Plumbing & Drainage Care", "Rapid leak diagnostics, sanitary fittings overhaul, pump room care, and pipe de-clogging.", "#/service/plumbing", "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=700&q=80", "Plumbing Support")}
+                    ${renderServiceCard("10", "Carpentry & Joinery Works", "Wooden fixture restoration, partitions, lock/handle adjustments, and bespoke furniture repairs.", "#/service/carpentry", "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=700&q=80", "Carpentry Support")}
+                    ${renderServiceCard("11", "Building Management (BMS)", "Complete oversight of physical plant operations, vendor coordination, and infrastructure safety.", "#/service/bms", "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=700&q=80", "Building Management")}
+                    ${renderServiceCard("12", "Post-Construction Handover", "Debris clearing, machine scrubbing, and detailing for developers and handover teams.", "#/service/post-construction", "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=700&q=80", "Post-construction")}
+                    ${renderServiceCard("13", "Mechanised Floor Cleaning", "Ride-on and walk-behind high power scrubbers and polishers for large commercial footprints.", "#/service/mechanised", "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=700&q=80", "Mechanised Cleaning")}
+                    ${renderServiceCard("14", "Façade & Rope Access", "Certified high-altitude curtain wall, ACP cladding, and exterior architectural washing.", "#/service/facade", "https://images.unsplash.com/photo-1508873696983-2df5293cb395?auto=format&fit=crop&w=700&q=80", "Façade Cleaning")}
+                    ${renderServiceCard("15", "One-Time & Event Cleaning", "Deep sanitisation drives, moving cleans, and swift post-event turnaround services.", "#/service/one-time", "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=700&q=80", "Event Cleaning")}
+                    ${renderServiceCard("16", "Technical Coordination & Audits", "Checklist compliance audits, daily operations reporting, and dedicated facility supervisors.", "#/service/technical", "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=700&q=80", "Technical Support")}
                   </div>
                 </div>
               </section>
@@ -1978,33 +1889,8 @@
                         Periodic intensive cleaning of floors, walls, ceilings, fixtures and hard-to-reach areas.
                       </p>
                     </div>
-
-                    <div style="background-color:var(--color-white); border:1px solid var(--color-border); padding:28px;">
-                      <div class="value-box-num">04</div>
-                      <h3 class="h3-serif" style="margin:8px 0 10px;">PANTRY & CAFETERIA</h3>
-                      <p style="font-size:0.92rem; color:var(--color-text-soft);">
-                        Cleaning and upkeep of pantry, cafeteria, kitchenette and dining zones to hygiene standards.
-                      </p>
-                    </div>
-
-                    <div style="background-color:var(--color-white); border:1px solid var(--color-border); padding:28px;">
-                      <div class="value-box-num">05</div>
-                      <h3 class="h3-serif" style="margin:8px 0 10px;">FLOOR CARE</h3>
-                      <p style="font-size:0.92rem; color:var(--color-text-soft);">
-                        Scrubbing, machine polishing, buffing and restoration for marble, granite, vinyl, tile and concrete floors.
-                      </p>
-                    </div>
-
-                    <div style="background-color:var(--color-white); border:1px solid var(--color-border); padding:28px;">
-                      <div class="value-box-num">06</div>
-                      <h3 class="h3-serif" style="margin:8px 0 10px;">WASTE MANAGEMENT</h3>
-                      <p style="font-size:0.92rem; color:var(--color-text-soft);">
-                        Collection, segregation and disposal support in line with site rules and local norms.
-                      </p>
-                    </div>
                   </div>
 
-                  <!-- Flexible Engagement Box -->
                   <div style="margin-top: 48px; background-color: var(--color-cream); border: 1px solid var(--color-border-gold); padding: clamp(28px, 4vw, 44px);">
                     <div class="editorial-grid-2">
                       <div>
@@ -2017,6 +1903,310 @@
                       <div style="display:flex; align-items:center; justify-content:flex-start; gap:16px;">
                         <a href="#/contact" class="btn btn-primary">REQUEST A SITE ASSESSMENT</a>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            `;
+          }
+        },
+
+        "/service/drivers": {
+          title: "Professional Driver & Chauffeur Services | Aarhat Group LLP",
+          metaDesc: "Verified, punctual drivers and corporate chauffeurs for commercial fleets and executive transit in Mumbai.",
+          render: function () {
+            return `
+              <div class="page-hero">
+                <div class="container">
+                  <div class="breadcrumbs"><a href="#/">Home</a> <span>/</span> <a href="#/services">Services</a> <span>/</span> <span>Drivers</span></div>
+                  <div class="eyebrow on-dark">MOBILITY & LOGISTICS</div>
+                  <h1 class="h1-serif on-dark">CHAUFFEURS & DRIVER SERVICES</h1>
+                  <p class="lead-text on-dark" style="margin-top:14px;">Reliable, verified, and trained drivers for corporate executives, internal shuttles, and commercial logistics.</p>
+                </div>
+              </div>
+              <section class="section-pad bg-ivory">
+                <div class="container">
+                  <div class="editorial-grid-2">
+                    <div>
+                      <h2 class="h2-serif" style="margin-bottom:18px;">Punctual, Verified & Road-Ready Drivers</h2>
+                      <p class="lead-text" style="margin-bottom:20px;">We supply disciplined drivers with complete background checks, valid commercial licenses, and proven familiarity with route navigation across Mumbai and Maharashtra.</p>
+                      <div class="value-box">
+                        <h4 class="value-box-title">Executive Chauffeurs</h4>
+                        <p class="value-box-desc">Uniformed, courteous, and privacy-conscious chauffeurs dedicated to senior management.</p>
+                      </div>
+                      <div class="value-box">
+                        <h4 class="value-box-title">Site & Shuttle Operations</h4>
+                        <p class="value-box-desc">Rostered drivers for intra-facility shuttles, transit vans, and day-to-day corporate duties.</p>
+                      </div>
+                    </div>
+                    <div class="editorial-image-frame">
+                      <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1000&q=80" alt="Chauffeur service">
+                    </div>
+                  </div>
+                </div>
+              </section>
+            `;
+          }
+        },
+
+        "/service/laundry": {
+          title: "Laundry & Linen Care Services | Aarhat Group LLP",
+          metaDesc: "Commercial linen, corporate uniform washing, and institutional laundry support in Mumbai.",
+          render: function () {
+            return `
+              <div class="page-hero">
+                <div class="container">
+                  <div class="breadcrumbs"><a href="#/">Home</a> <span>/</span> <a href="#/services">Services</a> <span>/</span> <span>Laundry</span></div>
+                  <div class="eyebrow on-dark">TEXTILE HYGIENE</div>
+                  <h1 class="h1-serif on-dark">LAUNDRY & LINEN SERVICES</h1>
+                  <p class="lead-text on-dark" style="margin-top:14px;">Hygienic batch processing, uniform care, and prompt linen turnover for commercial establishments.</p>
+                </div>
+              </div>
+              <section class="section-pad bg-ivory">
+                <div class="container">
+                  <div class="editorial-grid-2">
+                    <div>
+                      <h2 class="h2-serif" style="margin-bottom:18px;">High-Standard Fabric & Linen Sanitisation</h2>
+                      <p class="lead-text" style="margin-bottom:20px;">Structured pickups and deliveries of clean, pressed uniforms and linens using fabric-safe, anti-bacterial formulations.</p>
+                      <div class="value-box">
+                        <h4 class="value-box-title">Corporate Staff Uniforms</h4>
+                        <p class="value-box-desc">Scheduled washing, stain treatment, and steam ironing to preserve company presentation.</p>
+                      </div>
+                      <div class="value-box">
+                        <h4 class="value-box-title">Hospitality & Society Linens</h4>
+                        <p class="value-box-desc">Bulk laundering of towels, draperies, and banquet linens with dependable schedules.</p>
+                      </div>
+                    </div>
+                    <div class="editorial-image-frame">
+                      <img src="https://images.unsplash.com/photo-1545173168-9f1947eebb7f?auto=format&fit=crop&w=1000&q=80" alt="Commercial laundry">
+                    </div>
+                  </div>
+                </div>
+              </section>
+            `;
+          }
+        },
+
+        "/service/fumigation": {
+          title: "Fumigation & Fogging Services | Aarhat Group LLP",
+          metaDesc: "Thermal fogging, micro-misting, and area fumigation for industrial and commercial premises in Mumbai.",
+          render: function () {
+            return `
+              <div class="page-hero">
+                <div class="container">
+                  <div class="breadcrumbs"><a href="#/">Home</a> <span>/</span> <a href="#/services">Services</a> <span>/</span> <span>Fumigation</span></div>
+                  <div class="eyebrow on-dark">ENVIRONMENTAL HYGIENE</div>
+                  <h1 class="h1-serif on-dark">FUMIGATION & FOGGING</h1>
+                  <p class="lead-text on-dark" style="margin-top:14px;">High-dispersion disinfectant fogging and pest misting for extensive spaces and warehouses.</p>
+                </div>
+              </div>
+              <section class="section-pad bg-ivory">
+                <div class="container">
+                  <div class="editorial-grid-2">
+                    <div>
+                      <h2 class="h2-serif" style="margin-bottom:18px;">Deep Aerosol Coverage</h2>
+                      <p class="lead-text" style="margin-bottom:20px;">Thermal fogging penetrates deep ceiling voids, duct networks, and open warehouse racking to eliminate flying insects, microbes, and contaminants.</p>
+                      <div class="value-box">
+                        <h4 class="value-box-title">Warehouse & Plant Disinfestation</h4>
+                        <p class="value-box-desc">Rapid fogging drives that decontaminate large volumes without leaving toxic oily film.</p>
+                      </div>
+                      <div class="value-box">
+                        <h4 class="value-box-title">ULV Cold Fogging</h4>
+                        <p class="value-box-desc">Precision indoor sanitisation for auditoriums, retail outlets, and sensitive office spaces.</p>
+                      </div>
+                    </div>
+                    <div class="editorial-image-frame">
+                      <img src="https://images.unsplash.com/photo-1584634731339-252c581abfc5?auto=format&fit=crop&w=1000&q=80" alt="Fumigation and fogging">
+                    </div>
+                  </div>
+                </div>
+              </section>
+            `;
+          }
+        },
+
+        "/service/termites": {
+          title: "Anti-Termite Treatment | Aarhat Group LLP",
+          metaDesc: "Certified pre and post-construction anti-termite chemical barrier treatments in Mumbai.",
+          render: function () {
+            return `
+              <div class="page-hero">
+                <div class="container">
+                  <div class="breadcrumbs"><a href="#/">Home</a> <span>/</span> <a href="#/services">Services</a> <span>/</span> <span>Anti-Termite</span></div>
+                  <div class="eyebrow on-dark">STRUCTURAL PROTECTION</div>
+                  <h1 class="h1-serif on-dark">ANTI-TERMITE TREATMENTS</h1>
+                  <p class="lead-text on-dark" style="margin-top:14px;">Defend your architecture, wood framing, and interior partitions from subterranean termite destruction.</p>
+                </div>
+              </div>
+              <section class="section-pad bg-ivory">
+                <div class="container">
+                  <div class="editorial-grid-2">
+                    <div>
+                      <h2 class="h2-serif" style="margin-bottom:18px;">Long-Lasting Subterranean Protection</h2>
+                      <p class="lead-text" style="margin-bottom:20px;">Using approved termiticides applied by trained technicians via precision drilling and soil saturation.</p>
+                      <div class="value-box">
+                        <h4 class="value-box-title">Pre-Construction Soil Barriers</h4>
+                        <p class="value-box-desc">Chemical treatment applied to foundations and sub-slabs before flooring is poured.</p>
+                      </div>
+                      <div class="value-box">
+                        <h4 class="value-box-title">Post-Construction Perimeter Drilling</h4>
+                        <p class="value-box-desc">Non-disruptive skirt drilling and direct chemical injection along walls and wood fixtures.</p>
+                      </div>
+                    </div>
+                    <div class="editorial-image-frame">
+                      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80" alt="Anti termite inspection">
+                    </div>
+                  </div>
+                </div>
+              </section>
+            `;
+          }
+        },
+
+        "/service/electrical": {
+          title: "Electrical Maintenance & Hard Support | Aarhat Group LLP",
+          metaDesc: "Qualified electrician support, panel checkups, and routine electrical servicing across Mumbai.",
+          render: function () {
+            return `
+              <div class="page-hero">
+                <div class="container">
+                  <div class="breadcrumbs"><a href="#/">Home</a> <span>/</span> <a href="#/services">Services</a> <span>/</span> <span>Electrical</span></div>
+                  <div class="eyebrow on-dark">HARD SERVICES</div>
+                  <h1 class="h1-serif on-dark">ELECTRICAL MAINTENANCE</h1>
+                  <p class="lead-text on-dark" style="margin-top:14px;">Reliable power distribution, routine preventative inspections, and prompt snag resolution.</p>
+                </div>
+              </div>
+              <section class="section-pad bg-ivory">
+                <div class="container">
+                  <div class="editorial-grid-2">
+                    <div>
+                      <h2 class="h2-serif" style="margin-bottom:18px;">Certified Electrical Technicians</h2>
+                      <p class="lead-text" style="margin-bottom:20px;">From daily lighting repairs to HT/LT switchgear monitoring, our electricians keep your infrastructure powered and compliant.</p>
+                      <div class="value-box">
+                        <h4 class="value-box-title">Preventive Electrical Audits</h4>
+                        <p class="value-box-desc">Thermal scans, breaker checks, and proactive load balancing to avert electrical hazards.</p>
+                      </div>
+                      <div class="value-box">
+                        <h4 class="value-box-title">Emergency Snag Support</h4>
+                        <p class="value-box-desc">Prompt resolution of short-circuits, lighting failure, and equipment trippings.</p>
+                      </div>
+                    </div>
+                    <div class="editorial-image-frame">
+                      <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1000&q=80" alt="Electrical maintenance technician">
+                    </div>
+                  </div>
+                </div>
+              </section>
+            `;
+          }
+        },
+
+        "/service/plumbing": {
+          title: "Plumbing Support & Drainage Maintenance | Aarhat Group LLP",
+          metaDesc: "Comprehensive plumbing repairs, pump room maintenance, and water line upkeep in Mumbai.",
+          render: function () {
+            return `
+              <div class="page-hero">
+                <div class="container">
+                  <div class="breadcrumbs"><a href="#/">Home</a> <span>/</span> <a href="#/services">Services</a> <span>/</span> <span>Plumbing</span></div>
+                  <div class="eyebrow on-dark">HARD SERVICES</div>
+                  <h1 class="h1-serif on-dark">PLUMBING & DRAINAGE</h1>
+                  <p class="lead-text on-dark" style="margin-top:14px;">Smooth water supply, leak diagnostics, and preventive sanitary engineering.</p>
+                </div>
+              </div>
+              <section class="section-pad bg-ivory">
+                <div class="container">
+                  <div class="editorial-grid-2">
+                    <div>
+                      <h2 class="h2-serif" style="margin-bottom:18px;">Clean Waterflow & Flawless Drainage</h2>
+                      <p class="lead-text" style="margin-bottom:20px;">We resolve pressure drops, backflows, and faulty fixtures with dedicated on-site plumbing mechanics.</p>
+                      <div class="value-box">
+                        <h4 class="value-box-title">Pump & Overhead Tank Upkeep</h4>
+                        <p class="value-box-desc">Routine checks of booster pumps, check valves, and float switches.</p>
+                      </div>
+                      <div class="value-box">
+                        <h4 class="value-box-title">Sanitary & Drain De-clogging</h4>
+                        <p class="value-box-desc">Fast clearing of commercial drain traps, toilet fixtures, and stormwater drains.</p>
+                      </div>
+                    </div>
+                    <div class="editorial-image-frame">
+                      <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1000&q=80" alt="Plumbing maintenance">
+                    </div>
+                  </div>
+                </div>
+              </section>
+            `;
+          }
+        },
+
+        "/service/carpentry": {
+          title: "Carpentry & Joinery Services | Aarhat Group LLP",
+          metaDesc: "Skilled carpenters for furniture repairs, door hardware, partition snags, and office joinery in Mumbai.",
+          render: function () {
+            return `
+              <div class="page-hero">
+                <div class="container">
+                  <div class="breadcrumbs"><a href="#/">Home</a> <span>/</span> <a href="#/services">Services</a> <span>/</span> <span>Carpentry</span></div>
+                  <div class="eyebrow on-dark">HARD SERVICES</div>
+                  <h1 class="h1-serif on-dark">CARPENTRY & JOINERY</h1>
+                  <p class="lead-text on-dark" style="margin-top:14px;">Skilled craftsmen for ongoing furniture upkeep, door repairs, and interior architectural snags.</p>
+                </div>
+              </div>
+              <section class="section-pad bg-ivory">
+                <div class="container">
+                  <div class="editorial-grid-2">
+                    <div>
+                      <h2 class="h2-serif" style="margin-bottom:18px;">Expert Woodwork & Hardware Maintenance</h2>
+                      <p class="lead-text" style="margin-bottom:20px;">Eliminate squeaking hinges, damaged desk surfaces, and jammed doors with experienced in-house carpenters.</p>
+                      <div class="value-box">
+                        <h4 class="value-box-title">Door Closers & Lock Hardware</h4>
+                        <p class="value-box-desc">Re-aligning fire doors, replacing hydraulic closers, handles, and digital lock frames.</p>
+                      </div>
+                      <div class="value-box">
+                        <h4 class="value-box-title">Workstation & Furniture Repair</h4>
+                        <p class="value-box-desc">Laminate restoration, panel tightening, and customized cabinetry maintenance.</p>
+                      </div>
+                    </div>
+                    <div class="editorial-image-frame">
+                      <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=1000&q=80" alt="Carpentry repair work">
+                    </div>
+                  </div>
+                </div>
+              </section>
+            `;
+          }
+        },
+
+        "/service/bms": {
+          title: "Building & Facility Management (BMS) | Aarhat Group LLP",
+          metaDesc: "Integrated building operations, facility audits, and comprehensive management in Mumbai.",
+          render: function () {
+            return `
+              <div class="page-hero">
+                <div class="container">
+                  <div class="breadcrumbs"><a href="#/">Home</a> <span>/</span> <a href="#/services">Services</a> <span>/</span> <span>Building Management</span></div>
+                  <div class="eyebrow on-dark">HARD & SOFT INTEGRATION</div>
+                  <h1 class="h1-serif on-dark">BUILDING MANAGEMENT (BMS)</h1>
+                  <p class="lead-text on-dark" style="margin-top:14px;">End-to-end administration of residential complexes, corporate towers, and retail premises.</p>
+                </div>
+              </div>
+              <section class="section-pad bg-ivory">
+                <div class="container">
+                  <div class="editorial-grid-2">
+                    <div>
+                      <h2 class="h2-serif" style="margin-bottom:18px;">Unified Facility Leadership</h2>
+                      <p class="lead-text" style="margin-bottom:20px;">We manage building services harmoniously—from energy usage and HVAC run-times to vendor coordination and emergency response.</p>
+                      <div class="value-box">
+                        <h4 class="value-box-title">Plant & Asset Oversight</h4>
+                        <p class="value-box-desc">Daily logging of DG sets, lift maintenance, water levels, and security checkpoints.</p>
+                      </div>
+                      <div class="value-box">
+                        <h4 class="value-box-title">Transparent Administrative Liaison</h4>
+                        <p class="value-box-desc">Monthly management reporting, statutory compliance logs, and cost-saving audits.</p>
+                      </div>
+                    </div>
+                    <div class="editorial-image-frame">
+                      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" alt="Commercial Building Management">
                     </div>
                   </div>
                 </div>
@@ -2051,33 +2241,15 @@
                       <h2 class="h2-serif" style="margin-bottom: 20px;">Prepared for Every Special Occasion.</h2>
                       <div class="value-box">
                         <h4 class="value-box-title">Move-in and Move-out Cleaning</h4>
-                        <p class="value-box-desc">Comprehensive sanitization and preparation for offices, showrooms, commercial flats and villas.</p>
+                        <p class="value-box-desc">Comprehensive sanitization and preparation for offices, showrooms, and commercial spaces.</p>
                       </div>
                       <div class="value-box">
                         <h4 class="value-box-title">Pre & Post Event Cleaning</h4>
-                        <p class="value-box-desc">Dedicated pre-function prep and rapid post-event cleanup for auditoriums, theatres, retail outlets and banquet venues.</p>
-                      </div>
-                      <div class="value-box">
-                        <h4 class="value-box-title">Festival & Seasonal Drives</h4>
-                        <p class="value-box-desc">Special intensive deep cleaning drives ahead of corporate audits, festive occasions or annual premises reviews.</p>
-                      </div>
-                      <div class="value-box">
-                        <h4 class="value-box-title">Urgent Mobilisation</h4>
-                        <p class="value-box-desc">Quick mobilisation of teams, equipment and materials for urgent operational requirements.</p>
+                        <p class="value-box-desc">Dedicated pre-function prep and rapid post-event cleanup for auditoriums, retail outlets, and venues.</p>
                       </div>
                     </div>
-
-                    <div>
-                      <div class="editorial-image-frame">
-                        <img 
-                          src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1000&q=80" 
-                          alt="Intensive venue and facility sanitization prior to operation"
-                          loading="lazy"
-                        >
-                      </div>
-                      <div style="margin-top: 24px; text-align: center;">
-                        <a href="#/contact" class="btn btn-gold" style="width: 100%;">SCHEDULE ONE-TIME CLEANING</a>
-                      </div>
+                    <div class="editorial-image-frame">
+                      <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=80" alt="Event turnaround cleaning">
                     </div>
                   </div>
                 </div>
@@ -2099,92 +2271,24 @@
                   <div class="eyebrow on-dark">PROJECT HANDOVER SPECIALISTS</div>
                   <h1 class="h1-serif on-dark">POST-CONSTRUCTION<br>& HANDOVER CLEANING</h1>
                   <p class="lead-text on-dark" style="margin-top:14px;">
-                    From project handover to special occasions, our specialised teams prepare spaces to a spotless, ready-to-use standard.
+                    Transforming raw, dusty sites into gleaming, handover-ready premises for clients, builders, and architects.
                   </p>
                 </div>
               </div>
 
               <section class="section-pad bg-ivory">
                 <div class="container">
-                  <div class="editorial-grid-2" style="margin-bottom: 56px;">
+                  <div class="editorial-grid-2">
                     <div>
-                      <div class="eyebrow">HANDOVER CAPABILITY</div>
-                      <h2 class="h2-serif" style="margin-bottom: 18px;">TRANSFORMING RAW SITES INTO PRISTINE SPACES.</h2>
-                      <p style="font-size: 0.96rem; line-height: 1.7; color: var(--color-text-dark); margin-bottom: 16px;">
-                        Post-construction cleaning requires specific methods to remove plaster splatters, cement slurries, tape residue and micro-dust without etching or scratching expensive newly installed surfaces.
-                      </p>
-                      <ul style="list-style: none; display:flex; flex-direction:column; gap:12px; margin-bottom: 24px;">
-                        <li style="display:flex; gap:10px; font-size:0.92rem; color:var(--color-text-dark);">
-                          <span style="color:var(--color-gold-muted); font-weight:700;">✔</span>
-                          Removal of dust, cement residue, paint marks, stickers and construction debris.
-                        </li>
-                        <li style="display:flex; gap:10px; font-size:0.92rem; color:var(--color-text-dark);">
-                          <span style="color:var(--color-gold-muted); font-weight:700;">✔</span>
-                          Cleaning of windows, frames, tiles, fittings, fixtures and sanitary ware.
-                        </li>
-                        <li style="display:flex; gap:10px; font-size:0.92rem; color:var(--color-text-dark);">
-                          <span style="color:var(--color-gold-muted); font-weight:700;">✔</span>
-                          Machine scrubbing and polishing of floors for final handover finish.
-                        </li>
-                      </ul>
-                      <div style="background-color:var(--color-cream); border-left:3px solid var(--color-gold); padding:16px;">
-                        <strong style="color:var(--color-primary); font-size:0.92rem;">Multi-Stage Handover Protocol:</strong><br>
-                        <span style="font-size:0.9rem; color:var(--color-text-soft);">Rough Clean &rarr; Detailed Clean &rarr; Final Touch-Up</span>
+                      <h2 class="h2-serif" style="margin-bottom: 18px;">Zero Scratching, Complete Dust Removal.</h2>
+                      <p class="lead-text" style="margin-bottom: 20px;">Specialized techniques remove plaster slurries, tape glues, and cement specks without damaging fixtures or flooring.</p>
+                      <div class="value-box">
+                        <h4 class="value-box-title">Rough Clean to Fine Detailing</h4>
+                        <p class="value-box-desc">Systematic multi-stage process ensuring ceilings, glass, tiles, and fittings are spotless.</p>
                       </div>
                     </div>
-
-                    <div>
-                      <div class="editorial-image-frame">
-                        <img 
-                          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80" 
-                          alt="Infrastructure and architectural post construction site cleaning" 
-                          loading="lazy"
-                        >
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Process Timeline -->
-                  <div style="max-width: 800px; margin: 0 auto;">
-                    <div style="text-align: center; margin-bottom: 32px;">
-                      <div class="eyebrow" style="justify-content:center;">OUR METHODOLOGY</div>
-                      <h2 class="h2-serif">The 5-Stage Handover Flow</h2>
-                    </div>
-
-                    <div class="timeline-wrap">
-                      <div class="timeline-item">
-                        <div class="timeline-node">01</div>
-                        <h3 class="timeline-title">Site Survey</h3>
-                        <p class="timeline-desc">Thorough inspection of square footage, debris volume, stains and material finishes.</p>
-                      </div>
-
-                      <div class="timeline-item">
-                        <div class="timeline-node">02</div>
-                        <h3 class="timeline-title">Scope & Quote</h3>
-                        <p class="timeline-desc">Transparent calculation of manpower, timeline, required machinery and clear fixed pricing.</p>
-                      </div>
-
-                      <div class="timeline-item">
-                        <div class="timeline-node">03</div>
-                        <h3 class="timeline-title">Deployment</h3>
-                        <p class="timeline-desc">Rapid on-site arrival of supervised personnel with industrial scrubbers, vacuums and chemicals.</p>
-                      </div>
-
-                      <div class="timeline-item">
-                        <div class="timeline-node">04</div>
-                        <h3 class="timeline-title">Inspection</h3>
-                        <p class="timeline-desc">Joint room-by-room, surface-by-surface inspection using our detailed quality checklist.</p>
-                      </div>
-
-                      <div class="timeline-item">
-                        <div class="timeline-node">05</div>
-                        <h3 class="timeline-title">Handover</h3>
-                        <p class="timeline-desc">Signed clearance and handover of immaculate, move-in-ready premises to client or developer.</p>
-                      </div>
-                    </div>
-
-                    <div style="text-align: center; margin-top: 36px;">
-                      <a href="#/contact" class="btn btn-primary">BOOK A POST-CONSTRUCTION SURVEY</a>
+                    <div class="editorial-image-frame">
+                      <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80" alt="Post-construction site cleaning">
                     </div>
                   </div>
                 </div>
@@ -2194,85 +2298,32 @@
         },
 
         "/service/mechanised": {
-          title: "Mechanised, Façade & Specialised Solutions | Aarhat Group LLP",
-          metaDesc: "Mechanised cleaning, rope access façade maintenance, pest control and water tank cleaning services across Mumbai and Maharashtra.",
+          title: "Mechanised Cleaning Solutions | Aarhat Group LLP",
+          metaDesc: "Mechanised cleaning, rotary polishers, and high pressure jet services across Mumbai and Maharashtra.",
           render: function () {
             return `
               <div class="page-hero">
                 <div class="container">
-                  <div class="breadcrumbs">
-                    <a href="#/">Home</a> <span>/</span> <a href="#/services">Services</a> <span>/</span> <span>Specialised Solutions</span>
-                  </div>
-                  <div class="eyebrow on-dark">SPECIALISED DIVISIONS</div>
-                  <h1 class="h1-serif on-dark">MECHANISED, FAÇADE<br>& PEST CONTROL</h1>
-                  <p class="lead-text on-dark" style="margin-top:14px;">
-                    Engineered machinery, height safety and certified environmental pest treatments for high-demand facilities.
-                  </p>
+                  <div class="breadcrumbs"><a href="#/">Home</a> <span>/</span> <a href="#/services">Services</a> <span>/</span> <span>Mechanised Cleaning</span></div>
+                  <div class="eyebrow on-dark">INDUSTRIAL EQUIPMENT</div>
+                  <h1 class="h1-serif on-dark">MECHANISED CLEANING</h1>
+                  <p class="lead-text on-dark" style="margin-top:14px;">High-speed rotary polishers, single-disc machines, and industrial wet-dry vacuum systems.</p>
                 </div>
               </div>
-
               <section class="section-pad bg-ivory">
                 <div class="container">
-                  <div class="editorial-grid-2" style="gap: clamp(24px, 4vw, 44px);">
-                    <!-- 01 Mechanised -->
-                    <div style="background-color: var(--color-white); border: 1px solid var(--color-border); padding: clamp(24px, 4vw, 36px); border-top: 3px solid var(--color-gold);">
-                      <div class="service-card-num">01</div>
-                      <h2 class="h2-serif" style="font-size: 1.8rem; margin-bottom: 12px;">MECHANISED CLEANING</h2>
-                      <p style="font-size: 0.94rem; color: var(--color-text-dark); line-height: 1.65; margin-bottom: 16px;">
-                        Modern scrubbing, polishing, vacuum and high-pressure equipment for faster, deeper and more uniform results on large floor areas, parking zones, malls and industrial sites.
-                      </p>
-                      <ul style="font-size: 0.88rem; color: var(--color-text-soft); line-height: 1.6; list-style: square; padding-left: 20px;">
-                        <li>Heavy-duty ride-on & walk-behind scrubbers</li>
-                        <li>High-pressure water jet washing for basements & driveways</li>
-                        <li>Marble restoration, diamond polishing & buffing</li>
-                      </ul>
+                  <div class="editorial-grid-2">
+                    <div>
+                      <h2 class="h2-serif" style="margin-bottom:18px;">Depth, Speed & Uniform Results</h2>
+                      <p class="lead-text" style="margin-bottom:20px;">Engineered machinery delivering consistent high-gloss finishes on marble, granite, epoxy, and concrete.</p>
+                      <div class="value-box">
+                        <h4 class="value-box-title">High Pressure Jetting</h4>
+                        <p class="value-box-desc">Deep wash for driveways, basement parking bays, and exterior pathways.</p>
+                      </div>
                     </div>
-
-                    <!-- 02 Facade -->
-                    <div style="background-color: var(--color-white); border: 1px solid var(--color-border); padding: clamp(24px, 4vw, 36px); border-top: 3px solid var(--color-primary);">
-                      <div class="service-card-num">02</div>
-                      <h2 class="h2-serif" style="font-size: 1.8rem; margin-bottom: 12px;">FAÇADE & ROPE ACCESS CLEANING</h2>
-                      <p style="font-size: 0.94rem; color: var(--color-text-dark); line-height: 1.65; margin-bottom: 16px;">
-                        Safe cleaning of glass façades, curtain walls and high-rise exteriors by trained personnel using certified rope access and safety equipment, in line with safety regulations.
-                      </p>
-                      <ul style="font-size: 0.88rem; color: var(--color-text-soft); line-height: 1.6; list-style: square; padding-left: 20px;">
-                        <li>Full body harnesses & anchor line safety inspections</li>
-                        <li>Non-streaking architectural glass wash solutions</li>
-                        <li>Aluminium Composite Panel (ACP) restoration</li>
-                      </ul>
+                    <div class="editorial-image-frame">
+                      <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1000&q=80" alt="Mechanised floor scrubbing">
                     </div>
-
-                    <!-- 03 Pest Control -->
-                    <div style="background-color: var(--color-white); border: 1px solid var(--color-border); padding: clamp(24px, 4vw, 36px); border-top: 3px solid var(--color-primary);">
-                      <div class="service-card-num">03</div>
-                      <h2 class="h2-serif" style="font-size: 1.8rem; margin-bottom: 12px;">PEST CONTROL</h2>
-                      <p style="font-size: 0.94rem; color: var(--color-text-dark); line-height: 1.65; margin-bottom: 16px;">
-                        Inspection-led pest management using approved methods and materials, with scheduled preventive treatments to keep premises free from insects, rodents and other pests.
-                      </p>
-                      <ul style="font-size: 0.88rem; color: var(--color-text-soft); line-height: 1.6; list-style: square; padding-left: 20px;">
-                        <li>Gel baiting for cockroaches in pantries and server zones</li>
-                        <li>Rodent control, repellent barriers & trap stations</li>
-                        <li>General disinfestation adhering to commercial safety norms</li>
-                      </ul>
-                    </div>
-
-                    <!-- 04 Water Tank Cleaning -->
-                    <div style="background-color: var(--color-white); border: 1px solid var(--color-border); padding: clamp(24px, 4vw, 36px); border-top: 3px solid var(--color-gold);">
-                      <div class="service-card-num">04</div>
-                      <h2 class="h2-serif" style="font-size: 1.8rem; margin-bottom: 12px;">WATER TANK CLEANING</h2>
-                      <p style="font-size: 0.94rem; color: var(--color-text-dark); line-height: 1.65; margin-bottom: 16px;">
-                        Thorough cleaning and disinfection of overhead and underground water tanks, so stored water stays clean and safe for use.
-                      </p>
-                      <ul style="font-size: 0.88rem; color: var(--color-text-soft); line-height: 1.6; list-style: square; padding-left: 20px;">
-                        <li>Sludge de-watering & deep pressure washing</li>
-                        <li>Anti-bacterial disinfection spray & UV radiation treatment</li>
-                        <li>Scheduled compliance certifications for housing societies</li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div style="text-align:center; margin-top:44px;">
-                    <a href="#/contact" class="btn btn-primary">DISCUSS SPECIALISED SOLUTIONS</a>
                   </div>
                 </div>
               </section>
@@ -2293,7 +2344,7 @@
                   <div class="eyebrow on-dark">HIGH RISE EXTERIORS</div>
                   <h1 class="h1-serif on-dark">FAÇADE & ROPE ACCESS CLEANING</h1>
                   <p class="lead-text on-dark" style="margin-top:14px;">
-                    Safe cleaning of glass façades, curtain walls and high-rise exteriors by trained personnel using certified rope access and safety equipment, in line with safety regulations.
+                    Safe cleaning of glass façades, curtain walls and high-rise exteriors by trained personnel using certified rope access equipment.
                   </p>
                 </div>
               </div>
@@ -2303,34 +2354,17 @@
                   <div class="editorial-grid-2">
                     <div>
                       <div class="eyebrow">SAFETY FIRST</div>
-                      <h2 class="h2-serif" style="margin-bottom: 18px;">HIGH ELEVATION PRECISION & SAFETY COMPLIANCE.</h2>
-                      <p style="font-size: 0.96rem; line-height: 1.7; color: var(--color-text-dark); margin-bottom: 16px;">
-                        Mumbai's coastal and urban conditions lead to stubborn dust films, carbon deposits and mineral spotting on commercial glass. Our certified height technicians clean complex curtain walls and high-elevation architectural envelopes smoothly with zero disruptions to ground-level visitors.
+                      <h2 class="h2-serif" style="margin-bottom: 18px;">HIGH ELEVATION PRECISION.</h2>
+                      <p class="lead-text" style="margin-bottom: 16px;">
+                        Mumbai's coastal environment produces heavy salt films and traffic carbon on glass. Our rope technicians restore crystal-clear views safely.
                       </p>
                       <div class="value-box">
-                        <h4 class="value-box-title">Certified Riggers & Rope Technicians</h4>
-                        <p class="value-box-desc">Trained personnel working strictly with twin-rope systems and verified anchor safety mechanisms.</p>
-                      </div>
-                      <div class="value-box">
-                        <h4 class="value-box-title">Comprehensive Ground Safety</h4>
-                        <p class="value-box-desc">Barricading, drop hazard safety zones, warning signboards and safety supervisor on ground.</p>
-                      </div>
-                      <div class="value-box">
-                        <h4 class="value-box-title">Material Safe Formulations</h4>
-                        <p class="value-box-desc">Zero chemical etching on tinting films, sealant gaskets or architectural metal coatings.</p>
+                        <h4 class="value-box-title">Certified Riggers</h4>
+                        <p class="value-box-desc">Twin-rope systems, backup fall arresters, and rigorous ground perimeter security.</p>
                       </div>
                     </div>
-                    <div>
-                      <div class="editorial-image-frame">
-                        <img 
-                          src="https://images.unsplash.com/photo-1508873696983-2df5293cb395?auto=format&fit=crop&w=1000&q=80" 
-                          alt="Modern high rise commercial glass facade" 
-                          loading="lazy"
-                        >
-                      </div>
-                      <div style="margin-top:24px;">
-                        <a href="#/contact" class="btn btn-gold" style="width:100%;">REQUEST A FAÇADE SURVEY</a>
-                      </div>
+                    <div class="editorial-image-frame">
+                      <img src="https://images.unsplash.com/photo-1508873696983-2df5293cb395?auto=format&fit=crop&w=1000&q=80" alt="High rise glass facade">
                     </div>
                   </div>
                 </div>
@@ -2352,7 +2386,7 @@
                   <div class="eyebrow on-dark">PREVENTIVE HYGIENE</div>
                   <h1 class="h1-serif on-dark">PEST CONTROL MANAGEMENT</h1>
                   <p class="lead-text on-dark" style="margin-top:14px;">
-                    Inspection-led pest management using approved methods and materials, with scheduled preventive treatments to keep premises free from insects, rodents and other pests.
+                    Inspection-led pest management using approved methods, safe odorless materials, and scheduled prevention programs.
                   </p>
                 </div>
               </div>
@@ -2361,36 +2395,15 @@
                 <div class="container">
                   <div class="editorial-grid-2">
                     <div>
-                      <div class="eyebrow">TARGETED TREATMENT</div>
-                      <h2 class="h2-serif" style="margin-bottom:18px;">Safe, Regulated Pest Protection.</h2>
-                      <p style="font-size:0.96rem; line-height:1.7; color:var(--color-text-dark); margin-bottom:16px;">
-                        Pest presence threatens food safety audits, warehouse inventory, electrical cabling and employee health. Aarhat Group delivers systematic, scheduled pest barriers tailored to the layout and operational hours of your establishment.
-                      </p>
+                      <h2 class="h2-serif" style="margin-bottom:18px;">Targeted, Regulated Protection</h2>
+                      <p class="lead-text" style="margin-bottom:16px;">Protect server cabling, pantry zones, and store inventories with scheduled cyclic treatments.</p>
                       <div class="value-box">
-                        <h4 class="value-box-title">Initial Audit & Entry-Point Mapping</h4>
-                        <p class="value-box-desc">Identifying nesting zones, food attractants, drain openings and wall breaches.</p>
-                      </div>
-                      <div class="value-box">
-                        <h4 class="value-box-title">Odorless & Safe Chemicals</h4>
-                        <p class="value-box-desc">Using tested, low-toxicity approved formulas safe for corporate workspaces and retail floors.</p>
-                      </div>
-                      <div class="value-box">
-                        <h4 class="value-box-title">Scheduled Preventive Visits</h4>
-                        <p class="value-box-desc">Regular cyclic treatments to disrupt pest life cycles before infestations can occur.</p>
+                        <h4 class="value-box-title">Odorless Cockroach Gel & Rodent Stations</h4>
+                        <p class="value-box-desc">Low-toxicity, office-friendly formulations deployed without disrupting employees.</p>
                       </div>
                     </div>
-                    <div>
-                      <div class="contact-card-box">
-                        <h3 class="h3-serif" style="margin-bottom:14px;">Scope of Protection</h3>
-                        <ul style="font-size:0.92rem; color:var(--color-text-soft); line-height:1.8; list-style:none; padding:0; margin-bottom:24px;">
-                          <li style="border-bottom:1px solid var(--color-border); padding:8px 0;">• Cockroach Gel & Spray Treatment</li>
-                          <li style="border-bottom:1px solid var(--color-border); padding:8px 0;">• Rodent Management & Bait Stations</li>
-                          <li style="border-bottom:1px solid var(--color-border); padding:8px 0;">• Mosquito & Fly Mist Treatments</li>
-                          <li style="border-bottom:1px solid var(--color-border); padding:8px 0;">• Pantry & Cafeteria Disinfestation</li>
-                          <li style="padding:8px 0;">• Society Common Area & Drain Treatments</li>
-                        </ul>
-                        <a href="#/contact" class="btn btn-primary" style="width:100%;">REQUEST PEST INSPECTION</a>
-                      </div>
+                    <div class="editorial-image-frame">
+                      <img src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&w=1000&q=80" alt="Pest management technician">
                     </div>
                   </div>
                 </div>
@@ -2419,7 +2432,7 @@
 
               <section class="section-pad bg-ivory">
                 <div class="container">
-                  <div class="editorial-grid-3" style="margin-bottom: 48px;">
+                  <div class="editorial-grid-3">
                     <div style="background-color:var(--color-white); border:1px solid var(--color-border); padding:28px;">
                       <div class="value-box-num">01</div>
                       <h3 class="h3-serif" style="margin:8px 0 10px;">HOUSEKEEPING STAFF</h3>
@@ -2428,63 +2441,14 @@
 
                     <div style="background-color:var(--color-white); border:1px solid var(--color-border); padding:28px;">
                       <div class="value-box-num">02</div>
-                      <h3 class="h3-serif" style="margin:8px 0 10px;">SUPERVISORS</h3>
-                      <p style="font-size:0.92rem; color:var(--color-text-soft);">On-site supervisors who monitor quality, shift attendance, checklists and client feedback.</p>
+                      <h3 class="h3-serif" style="margin:8px 0 10px;">OFFICE BOYS & PANTRY</h3>
+                      <p style="font-size:0.92rem; color:var(--color-text-soft);">Reliable personnel for document runner chores, pantry hospitality, and internal logistics.</p>
                     </div>
 
                     <div style="background-color:var(--color-white); border:1px solid var(--color-border); padding:28px;">
                       <div class="value-box-num">03</div>
-                      <h3 class="h3-serif" style="margin:8px 0 10px;">OFFICE BOYS & PANTRY STAFF</h3>
-                      <p style="font-size:0.92rem; color:var(--color-text-soft);">Reliable staff for office chores, beverage and pantry service and general daily assistance.</p>
-                    </div>
-
-                    <div style="background-color:var(--color-white); border:1px solid var(--color-border); padding:28px;">
-                      <div class="value-box-num">04</div>
-                      <h3 class="h3-serif" style="margin:8px 0 10px;">MACHINE OPERATORS</h3>
-                      <p style="font-size:0.92rem; color:var(--color-text-soft);">Skilled operators for heavy scrubbing, polishing, jet-wash and vacuum equipment.</p>
-                    </div>
-
-                    <div style="background-color:var(--color-white); border:1px solid var(--color-border); padding:28px;">
-                      <div class="value-box-num">05</div>
                       <h3 class="h3-serif" style="margin:8px 0 10px;">SITE COORDINATORS</h3>
-                      <p style="font-size:0.92rem; color:var(--color-text-soft);">Single point of contact for shift scheduling, escalation, audits and monthly reporting.</p>
-                    </div>
-
-                    <div style="background-color:var(--color-white); border:1px solid var(--color-border); padding:28px;">
-                      <div class="value-box-num">06</div>
-                      <h3 class="h3-serif" style="margin:8px 0 10px;">TECHNICAL SUPPORT</h3>
-                      <p style="font-size:0.92rem; color:var(--color-text-soft);">Support staff for routine maintenance, minor repair needs and facility readiness.</p>
-                    </div>
-                  </div>
-
-                  <!-- Commitment Box -->
-                  <div class="bg-cream" style="border:1px solid var(--color-border-gold); padding: clamp(24px, 4vw, 44px);">
-                    <div class="eyebrow">OUR PEOPLE COMMITMENT</div>
-                    <h2 class="h2-serif" style="margin-bottom: 20px;">Dignity, Training and Strict Compliance</h2>
-                    <div class="editorial-grid-2">
-                      <div>
-                        <div class="value-box">
-                          <h4 class="value-box-title">Proper Verification & Induction</h4>
-                          <p class="value-box-desc">Rigorous background verification, identity check and site orientation before any personnel step foot on your site.</p>
-                        </div>
-                        <div class="value-box">
-                          <h4 class="value-box-title">Uniforms, ID Cards and PPE</h4>
-                          <p class="value-box-desc">Clean, identifiable company uniforms, official identity badges and necessary safety gear for all staff members.</p>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="value-box">
-                          <h4 class="value-box-title">Continuous Training</h4>
-                          <p class="value-box-desc">Regular on-the-job training in professional cleaning methods, chemical dilutions, safety and courtesy.</p>
-                        </div>
-                        <div class="value-box">
-                          <h4 class="value-box-title">Statutory Compliance Handled By Us</h4>
-                          <p class="value-box-desc">All statutory and labor compliance is managed by Aarhat Group LLP, so clients have one less thing to worry about.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div style="margin-top: 14px;">
-                      <a href="#/contact" class="btn btn-primary">HIRE FACILITY MANPOWER</a>
+                      <p style="font-size:0.92rem; color:var(--color-text-soft);">Single point of contact for shift rosters, escalation, checklists, and monthly audit reports.</p>
                     </div>
                   </div>
                 </div>
@@ -2515,41 +2479,17 @@
                 <div class="container">
                   <div class="editorial-grid-2">
                     <div>
-                      <div class="eyebrow">INTEGRATED FACILITY CARE</div>
                       <h2 class="h2-serif" style="margin-bottom:18px;">Proactive Upkeep For Seamless Operations.</h2>
-                      <p style="font-size:0.96rem; line-height:1.7; color:var(--color-text-dark); margin-bottom:16px;">
-                        Aarhat Group LLP provides routine technical and maintenance support so that minor infrastructure defects are spotted and addressed before they disrupt daily business routines.
+                      <p class="lead-text" style="margin-bottom:16px;">
+                        Aarhat Group LLP provides routine technical and maintenance audits so that minor infrastructure snags are detected before they disrupt business.
                       </p>
-                      
                       <div class="value-box">
-                        <h4 class="value-box-title">Routine Maintenance</h4>
-                        <p class="value-box-desc">Scheduled checks of door hardware, lighting, basic plumbing fixtures and common facility assets.</p>
-                      </div>
-                      <div class="value-box">
-                        <h4 class="value-box-title">Minor Repair Needs</h4>
-                        <p class="value-box-desc">Swift resolution of minor snags and wear-and-tear items reported during daily housekeeping shifts.</p>
-                      </div>
-                      <div class="value-box">
-                        <h4 class="value-box-title">Checklists & Audits</h4>
-                        <p class="value-box-desc">Structured inspection logs and periodic supervisor audits keeping property managers informed.</p>
-                      </div>
-                      <div class="value-box">
-                        <h4 class="value-box-title">Site Coordination & Reporting</h4>
-                        <p class="value-box-desc">Seamless communication link between building admin, facility supervisors and maintenance crews.</p>
+                        <h4 class="value-box-title">Audit Checklists</h4>
+                        <p class="value-box-desc">Structured daily inspection logs and supervisor cross-checks keeping property owners informed.</p>
                       </div>
                     </div>
-
-                    <div>
-                      <div class="editorial-image-frame">
-                        <img 
-                          src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80" 
-                          alt="Facility maintenance inspections and checklist verification"
-                          loading="lazy"
-                        >
-                      </div>
-                      <div style="margin-top: 24px; text-align: center;">
-                        <a href="#/contact" class="btn btn-gold" style="width: 100%;">REQUEST INTEGRATED PROPOSAL</a>
-                      </div>
+                    <div class="editorial-image-frame">
+                      <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80" alt="Facility technical audit">
                     </div>
                   </div>
                 </div>
@@ -2587,42 +2527,36 @@
                   </div>
 
                   <div class="timeline-wrap">
-                    <!-- Step 01 -->
                     <div class="timeline-item">
                       <div class="timeline-node">01</div>
                       <h3 class="timeline-title">UNDERSTAND</h3>
                       <p class="timeline-desc">Site visit and thorough study of your area, footfall, operational usage patterns and hygiene expectations.</p>
                     </div>
 
-                    <!-- Step 02 -->
                     <div class="timeline-item">
                       <div class="timeline-node">02</div>
                       <h3 class="timeline-title">PLAN</h3>
                       <p class="timeline-desc">Custom scope of work, tailored manpower allocations, machinery deployment schedule and shift timing rosters.</p>
                     </div>
 
-                    <!-- Step 03 -->
                     <div class="timeline-item">
                       <div class="timeline-node">03</div>
                       <h3 class="timeline-title">MOBILISE</h3>
                       <p class="timeline-desc">Trained staff, on-site supervisors, verified materials and modern machinery deployed seamlessly on site.</p>
                     </div>
 
-                    <!-- Step 04 -->
                     <div class="timeline-item">
                       <div class="timeline-node">04</div>
                       <h3 class="timeline-title">DELIVER</h3>
                       <p class="timeline-desc">Daily execution carried out strictly as per predefined checklists and agreed service level agreements (SLAs).</p>
                     </div>
 
-                    <!-- Step 05 -->
                     <div class="timeline-item">
                       <div class="timeline-node">05</div>
                       <h3 class="timeline-title">AUDIT</h3>
                       <p class="timeline-desc">Routine supervisor inspections, random cross-audits and periodic management reviews to maintain standards.</p>
                     </div>
 
-                    <!-- Step 06 -->
                     <div class="timeline-item">
                       <div class="timeline-node">06</div>
                       <h3 class="timeline-title">IMPROVE</h3>
@@ -2664,7 +2598,6 @@
               <section class="section-pad bg-ivory">
                 <div class="container">
                   <div class="editorial-grid-3">
-                    <!-- 01 -->
                     <div style="background-color:var(--color-white); border:1px solid var(--color-border); padding:32px; border-top:3px solid var(--color-gold);">
                       <div class="value-box-num">01</div>
                       <h3 class="h3-serif" style="margin:10px 0 12px;">QUALITY CONTROL</h3>
@@ -2673,7 +2606,6 @@
                       </p>
                     </div>
 
-                    <!-- 02 -->
                     <div style="background-color:var(--color-white); border:1px solid var(--color-border); padding:32px; border-top:3px solid var(--color-primary);">
                       <div class="value-box-num">02</div>
                       <h3 class="h3-serif" style="margin:10px 0 12px;">HEALTH & SAFETY</h3>
@@ -2682,7 +2614,6 @@
                       </p>
                     </div>
 
-                    <!-- 03 -->
                     <div style="background-color:var(--color-white); border:1px solid var(--color-border); padding:32px; border-top:3px solid var(--color-primary);">
                       <div class="value-box-num">03</div>
                       <h3 class="h3-serif" style="margin:10px 0 12px;">SAFE CHEMICALS & MATERIALS</h3>
@@ -2691,7 +2622,6 @@
                       </p>
                     </div>
 
-                    <!-- 04 -->
                     <div style="background-color:var(--color-white); border:1px solid var(--color-border); padding:32px; border-top:3px solid var(--color-primary);">
                       <div class="value-box-num">04</div>
                       <h3 class="h3-serif" style="margin:10px 0 12px;">ECO-CONSCIOUS PRACTICES</h3>
@@ -2700,7 +2630,6 @@
                       </p>
                     </div>
 
-                    <!-- 05 -->
                     <div style="background-color:var(--color-white); border:1px solid var(--color-border); padding:32px; border-top:3px solid var(--color-gold);">
                       <div class="value-box-num">05</div>
                       <h3 class="h3-serif" style="margin:10px 0 12px;">STATUTORY COMPLIANCE</h3>
@@ -2709,23 +2638,12 @@
                       </p>
                     </div>
 
-                    <!-- 06 -->
                     <div style="background-color:var(--color-white); border:1px solid var(--color-border); padding:32px; border-top:3px solid var(--color-primary);">
                       <div class="value-box-num">06</div>
                       <h3 class="h3-serif" style="margin:10px 0 12px;">QUICK RESPONSE</h3>
                       <p style="font-size:0.92rem; color:var(--color-text-soft); line-height:1.6;">
                         Dedicated coordinator and escalation contact for complaints, special requests and urgent operational needs.
                       </p>
-                    </div>
-                  </div>
-
-                  <!-- Closing quote -->
-                  <div style="margin-top: 56px; text-align: center; padding: clamp(32px, 5vw, 48px); background-color: var(--color-cream); border: 1px solid var(--color-border-gold);">
-                    <div style="font-family: var(--font-serif); font-size: clamp(1.4rem, 2.5vw, 2.1rem); font-style: italic; color: var(--color-primary); margin-bottom: 12px;">
-                      "Quality is not an act. It is a habit."
-                    </div>
-                    <div style="font-size: 0.88rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-gold-muted);">
-                      Every site, every shift, every time.
                     </div>
                   </div>
                 </div>
@@ -2755,7 +2673,6 @@
               <section class="section-pad bg-ivory">
                 <div class="container">
                   <div class="editorial-grid-2">
-                    <!-- Sector 01 -->
                     <div style="background-color:var(--color-white); border:1px solid var(--color-border); padding:32px; border-left:4px solid var(--color-gold);">
                       <div class="value-box-num">01</div>
                       <h3 class="h3-serif" style="margin:8px 0 10px;">CONSTRUCTION & INFRASTRUCTURE</h3>
@@ -2764,7 +2681,6 @@
                       </p>
                     </div>
 
-                    <!-- Sector 02 -->
                     <div style="background-color:var(--color-white); border:1px solid var(--color-border); padding:32px; border-left:4px solid var(--color-primary);">
                       <div class="value-box-num">02</div>
                       <h3 class="h3-serif" style="margin:8px 0 10px;">REAL ESTATE & HOUSING</h3>
@@ -2773,7 +2689,6 @@
                       </p>
                     </div>
 
-                    <!-- Sector 03 -->
                     <div style="background-color:var(--color-white); border:1px solid var(--color-border); padding:32px; border-left:4px solid var(--color-gold);">
                       <div class="value-box-num">03</div>
                       <h3 class="h3-serif" style="margin:8px 0 10px;">RETAIL & SUPERMARKETS</h3>
@@ -2782,7 +2697,6 @@
                       </p>
                     </div>
 
-                    <!-- Sector 04 -->
                     <div style="background-color:var(--color-white); border:1px solid var(--color-border); padding:32px; border-left:4px solid var(--color-primary);">
                       <div class="value-box-num">04</div>
                       <h3 class="h3-serif" style="margin:8px 0 10px;">ENTERTAINMENT & CINEMAS</h3>
@@ -2790,46 +2704,6 @@
                         Auditoriums, lobbies, restrooms and event venues. Fast turnaround cleaning between show screenings and rigorous washroom sanitisation.
                       </p>
                     </div>
-
-                    <!-- Sector 05 -->
-                    <div style="background-color:var(--color-white); border:1px solid var(--color-border); padding:32px; border-left:4px solid var(--color-gold);">
-                      <div class="value-box-num">05</div>
-                      <h3 class="h3-serif" style="margin:8px 0 10px;">COMMERCIAL OFFICES</h3>
-                      <p style="font-size:0.94rem; color:var(--color-text-soft);">
-                        Corporate offices, business parks and co-working spaces. Desk dusting, floor sanitising, pantry operations and discrete daily support.
-                      </p>
-                    </div>
-
-                    <!-- Sector 06 -->
-                    <div style="background-color:var(--color-white); border:1px solid var(--color-border); padding:32px; border-left:4px solid var(--color-primary);">
-                      <div class="value-box-num">06</div>
-                      <h3 class="h3-serif" style="margin:8px 0 10px;">INDUSTRIAL & WAREHOUSES</h3>
-                      <p style="font-size:0.94rem; color:var(--color-text-soft);">
-                        Factories, warehouses and large-area mechanised cleaning. Machine scrubbing of concrete floor slabs, loading docks and perimeter paths.
-                      </p>
-                    </div>
-
-                    <!-- Sector 07 -->
-                    <div style="background-color:var(--color-white); border:1px solid var(--color-border); padding:32px; border-left:4px solid var(--color-gold);">
-                      <div class="value-box-num">07</div>
-                      <h3 class="h3-serif" style="margin:8px 0 10px;">HOSPITALITY</h3>
-                      <p style="font-size:0.94rem; color:var(--color-text-soft);">
-                        Hotels, restaurants, banquet halls and service areas. Pristine front-of-house hygiene and back-of-house kitchen sanitation.
-                      </p>
-                    </div>
-
-                    <!-- Sector 08 -->
-                    <div style="background-color:var(--color-white); border:1px solid var(--color-border); padding:32px; border-left:4px solid var(--color-primary);">
-                      <div class="value-box-num">08</div>
-                      <h3 class="h3-serif" style="margin:8px 0 10px;">EDUCATION & INSTITUTIONS</h3>
-                      <p style="font-size:0.94rem; color:var(--color-text-soft);">
-                        Schools, colleges, training centres and campuses. Health-first sanitisation for classrooms, corridors, washrooms and libraries.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div style="margin-top:44px; text-align:center;">
-                    <a href="#/contact" class="btn btn-primary">DISCUSS YOUR SECTOR REQUIREMENTS</a>
                   </div>
                 </div>
               </section>
@@ -2865,86 +2739,35 @@
                     </p>
                   </div>
 
-                <!-- Supplied Client Names Grid -->
-<div class="client-grid" style="margin-bottom: 36px;">
-  <div class="client-pill">
-    <img src="images/afcons.png" alt="Afcons Infrastructure" class="client-logo-img" loading="lazy">
-    <span class="client-pill-name">AFCONS</span>
-  </div>
+                  <div class="client-grid" style="margin-bottom: 36px;">
+                    <div class="client-pill">
+                      <img src="images/afcons.png" alt="Afcons Infrastructure" class="client-logo-img" loading="lazy">
+                      <span class="client-pill-name">AFCONS</span>
+                    </div>
 
-  <div class="client-pill">
-    <img src="images/Shapoorji_Pallonji_Group_logo.svg" alt="Shapoorji Pallonji" class="client-logo-img" loading="lazy">
-    <span class="client-pill-name">SHAPOORJI PALLONJI</span>
-  </div>
+                    <div class="client-pill">
+                      <img src="images/Shapoorji_Pallonji_Group_logo.svg" alt="Shapoorji Pallonji" class="client-logo-img" loading="lazy">
+                      <span class="client-pill-name">SHAPOORJI PALLONJI</span>
+                    </div>
 
-  <div class="client-pill">
-    <img src="images/DMart-Avenue-Supermarts-Logo-Vector.svg-.png" alt="DMart" class="client-logo-img" loading="lazy">
-    <span class="client-pill-name">DMART</span>
-  </div>
+                    <div class="client-pill">
+                      <img src="images/DMart-Avenue-Supermarts-Logo-Vector.svg-.png" alt="DMart" class="client-logo-img" loading="lazy">
+                      <span class="client-pill-name">DMART</span>
+                    </div>
 
-  <div class="client-pill">
-    <img src="images/Movietime_Cinemas_Logo1.jpg" alt="Movie Time Cinemas" class="client-logo-img" loading="lazy">
-    <span class="client-pill-name">MOVIE TIME</span>
-  </div>
+                    <div class="client-pill">
+                      <img src="images/Movietime_Cinemas_Logo1.jpg" alt="Movie Time Cinemas" class="client-logo-img" loading="lazy">
+                      <span class="client-pill-name">MOVIE TIME</span>
+                    </div>
 
-  <div class="client-pill">
-    <img src="images/images.png" alt="Mayfair Housing" class="client-logo-img" loading="lazy">
-    <span class="client-pill-name">MAYFAIR HOUSING</span>
-  </div>
+                    <div class="client-pill">
+                      <img src="images/images.png" alt="Mayfair Housing" class="client-logo-img" loading="lazy">
+                      <span class="client-pill-name">MAYFAIR HOUSING</span>
+                    </div>
 
-  <div class="client-pill">
-    <img src="images/HOH_Horizontal_Logo_Left_Aligned_with_TM Mark-01.jpg" alt="Hiranandani" class="client-logo-img" loading="lazy">
-    <span class="client-pill-name">HIRANANDANI</span>
-  </div>
-</div>
-
-                  <div style="text-align: center; margin-bottom: 56px;">
-                    <p style="font-style: italic; font-family: var(--font-serif); font-size: 1.25rem; color: var(--color-gold-muted);">
-                      ...and many more satisfied clients across Mumbai and Maharashtra.
-                    </p>
-                  </div>
-
-                  <!-- Why Leading Names Trust Us -->
-                  <div class="bg-cream" style="border: 1px solid var(--color-border-gold); padding: clamp(24px, 4vw, 44px);">
-                    <div class="eyebrow">OUR EDGE</div>
-                    <h2 class="h2-serif" style="margin-bottom: 24px;">WHY CHOOSE AARHAT GROUP</h2>
-
-                    <div class="editorial-grid-2">
-                      <div class="value-box">
-                        <div class="value-box-num">01</div>
-                        <h4 class="value-box-title">SINGLE-POINT ACCOUNTABILITY</h4>
-                        <p class="value-box-desc">One team, one responsibility and one cost, with no vendor juggling.</p>
-                      </div>
-
-                      <div class="value-box">
-                        <div class="value-box-num">02</div>
-                        <h4 class="value-box-title">TRAINED AND SUPERVISED WORKFORCE</h4>
-                        <p class="value-box-desc">Verified, uniformed staff with continuous on-site supervision.</p>
-                      </div>
-
-                      <div class="value-box">
-                        <div class="value-box-num">03</div>
-                        <h4 class="value-box-title">CUSTOMISED SOLUTIONS</h4>
-                        <p class="value-box-desc">Scope, manpower and schedules built around your facility.</p>
-                      </div>
-
-                      <div class="value-box">
-                        <div class="value-box-num">04</div>
-                        <h4 class="value-box-title">MODERN EQUIPMENT & MATERIALS</h4>
-                        <p class="value-box-desc">Mechanised cleaning for speed, depth and consistent finish.</p>
-                      </div>
-
-                      <div class="value-box">
-                        <div class="value-box-num">05</div>
-                        <h4 class="value-box-title">COST-EFFECTIVE AND TRANSPARENT</h4>
-                        <p class="value-box-desc">Clear pricing with resource optimisation and no hidden surprises.</p>
-                      </div>
-
-                      <div class="value-box">
-                        <div class="value-box-num">06</div>
-                        <h4 class="value-box-title">RESPONSIVE SUPPORT</h4>
-                        <p class="value-box-desc">Quick mobilisation and a direct line for requests and escalations.</p>
-                      </div>
+                    <div class="client-pill">
+                      <img src="images/HOH_Horizontal_Logo_Left_Aligned_with_TM Mark-01.jpg" alt="Hiranandani" class="client-logo-img" loading="lazy">
+                      <span class="client-pill-name">HIRANANDANI</span>
                     </div>
                   </div>
                 </div>
@@ -2974,12 +2797,11 @@
               <section class="section-pad bg-ivory">
                 <div class="container">
                   <div class="editorial-grid-2" style="align-items: flex-start;">
-                    <!-- Contact Information Column -->
                     <div>
                       <div class="eyebrow">HEADQUARTERS & DETAILS</div>
                       <h2 class="h2-serif" style="margin-bottom: 20px;">Direct Communication</h2>
                       <p style="font-size: 0.98rem; line-height: 1.65; color: var(--color-text-soft); margin-bottom: 28px;">
-                        Reach out directly to schedule a site inspection, discuss annual housekeeping contracts or request urgent post-construction deployment.
+                        Reach out directly to schedule a site inspection, discuss annual facility contracts, or request urgent deployment.
                       </p>
 
                       <div style="background-color: var(--color-white); border: 1px solid var(--color-border); padding: 28px; margin-bottom: 24px;">
@@ -2993,8 +2815,8 @@
                               <td class="glance-label">ADDRESS</td>
                               <td class="glance-value">
                                 Office No 7, 1st Floor, Singh House, 23/25,<br>
-            Ambalal Doshi Marg, Opposite Stock Exchange Post office, Fort,<br>
-            Mumbai 400 001
+                                Ambalal Doshi Marg, Opposite Stock Exchange Post office, Fort,<br>
+                                Mumbai 400 001
                               </td>
                             </tr>
                             <tr>
@@ -3035,7 +2857,6 @@
                       </div>
                     </div>
 
-                    <!-- Direct Request Form Box -->
                     <div class="contact-card-box">
                       <div class="eyebrow">SITE VISIT ENQUIRY</div>
                       <h3 class="h3-serif" style="margin-bottom: 12px;">REQUEST A SITE ASSESSMENT</h3>
@@ -3058,12 +2879,20 @@
                           <label for="contactService" style="display:block; font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px; color:var(--color-primary);">Service Needed</label>
                           <select id="contactService" style="width:100%; height:46px; padding:0 14px; border:1px solid var(--color-border); background-color:var(--color-ivory); font-family:var(--font-sans); font-size:0.92rem; color:var(--color-text-dark);">
                             <option value="Housekeeping & Deep Cleaning">Housekeeping & Deep Cleaning</option>
-                            <option value="Post-Construction Cleaning">Post-Construction Cleaning</option>
-                            <option value="One-Time / Event Cleaning">One-Time / Event Cleaning</option>
+                            <option value="Office Boys & Pantry">Office Boys & Pantry Staff</option>
+                            <option value="Drivers & Chauffeurs">Chauffeurs & Driver Services</option>
+                            <option value="Laundry & Linen">Laundry & Linen Care</option>
+                            <option value="Pest Control">Pest Control & Rodent Management</option>
+                            <option value="Fumigation & Fogging">Fumigation & Fogging</option>
+                            <option value="Anti-Termite">Anti-Termite Treatment</option>
+                            <option value="Electrical Support">Electrical Maintenance</option>
+                            <option value="Plumbing Support">Plumbing & Drainage</option>
+                            <option value="Carpentry Works">Carpentry & Joinery</option>
+                            <option value="Building Management">Building Management (BMS)</option>
+                            <option value="Post-Construction Cleaning">Post-Construction Handover</option>
+                            <option value="Mechanised Cleaning">Mechanised Deep Cleaning</option>
                             <option value="Façade & Rope Access">Façade & Rope Access</option>
-                            <option value="Pest Control">Pest Control</option>
-                            <option value="Manpower Support">Manpower Support</option>
-                            <option value="Technical Support">Technical Support</option>
+                            <option value="One-Time Cleaning">One-Time / Event Cleaning</option>
                           </select>
                         </div>
 
@@ -3101,7 +2930,6 @@
         if (!hash || hash === "#" || hash === "#/") {
           return "/";
         }
-        // Normalize hash format "#/something" -> "/something"
         let route = hash.replace(/^#/, "");
         if (route.endsWith("/") && route.length > 1) {
           route = route.slice(0, -1);
@@ -3114,7 +2942,6 @@
           const targetRoute = link.getAttribute("data-route");
           if (!targetRoute) return;
 
-          // Check direct match or parent path
           const isActive =
             targetRoute === currentRoute ||
             (targetRoute !== "/" && currentRoute.startsWith(targetRoute));
@@ -3173,7 +3000,6 @@
         const routeKey = getCleanRoute();
         const routeData = routes[routeKey];
 
-        // Animate out
         appRoot.classList.add("route-fade-out");
 
         setTimeout(() => {
@@ -3181,7 +3007,6 @@
             appRoot.innerHTML = routeData.render();
             document.title = routeData.title;
 
-            // Update meta description
             let metaDescEl = document.querySelector('meta[name="description"]');
             if (metaDescEl && routeData.metaDesc) {
               metaDescEl.setAttribute("content", routeData.metaDesc);
@@ -3190,25 +3015,19 @@
             appRoot.innerHTML = renderNotFound();
           }
 
-          // Scroll straight to top of new view
           window.scrollTo(0, 0);
-
-          // Update navigation states
           updateActiveNav(routeKey);
 
-          // Animate in
           appRoot.classList.remove("route-fade-out");
           appRoot.focus();
         }, 120);
       }
 
-      // Event listeners for routing
       window.addEventListener("hashchange", () => {
         closeMobileMenu();
         handleRouteTransition();
       });
 
-      // Header Scroll Shrink
       window.addEventListener("scroll", () => {
         if (window.scrollY > 40) {
           siteHeader.classList.add("scrolled");
@@ -3217,7 +3036,6 @@
         }
       }, { passive: true });
 
-      // Mobile Menu Listeners
       mobileToggle.addEventListener("click", () => {
         const isExpanded = mobileToggle.getAttribute("aria-expanded") === "true";
         if (isExpanded) {
@@ -3230,14 +3048,12 @@
       mobileClose.addEventListener("click", closeMobileMenu);
       mobileOverlay.addEventListener("click", closeMobileMenu);
 
-      // Keyboard escape closes mobile drawer
       window.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && mobileDrawer.classList.contains("open")) {
           closeMobileMenu();
         }
       });
 
-      // Initial page load trigger
       window.addEventListener("DOMContentLoaded", () => {
         handleRouteTransition();
       });
