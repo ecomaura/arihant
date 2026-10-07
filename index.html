@@ -1012,6 +1012,37 @@
       transition: var(--transition-standard);
     }
 
+    /* Floating WhatsApp Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 58px;
+  height: 58px;
+  background-color: #25D366;
+  color: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.4);
+  z-index: 1090;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.whatsapp-float:hover {
+  background-color: #20BA5A;
+  transform: scale(1.08) translateY(-3px);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.55);
+  color: #FFFFFF;
+}
+
+.whatsapp-float svg {
+  width: 32px;
+  height: 32px;
+  fill: currentColor;
+}
+
     .acronym-card:hover {
       border-color: var(--color-gold);
       transform: translateX(4px);
@@ -3059,5 +3090,18 @@
       });
     })();
   </script>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+<a 
+  href="https://wa.me/919167173359?text=Hello%20Aarhat%20Group%20LLP,%20I%20would%20like%20to%20enquire%20about%20your%20facility%20services." 
+  class="whatsapp-float" 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  aria-label="Chat with Aarhat Group LLP on WhatsApp"
+>
+  <svg viewBox="0 0 32 32" aria-hidden="true">
+    <path d="M16 2a13.9 13.9 0 0 0-12 20.9L2 30l7.3-1.9A13.9 13.9 0 1 0 16 2zm0 25.5a11.6 11.6 0 0 1-5.9-1.6l-.4-.3-4.4 1.1 1.2-4.2-.3-.5A11.6 11.6 0 1 1 16 27.5zm6.4-8.7c-.3-.2-2.1-1-2.4-1.1-.3-.2-.6-.2-.8.2s-1 1.2-1.2 1.4-.4.3-.8.1a9.8 9.8 0 0 1-2.9-1.8 10.9 10.9 0 0 1-2-2.5c-.2-.4 0-.6.2-.8l.6-.7.4-.6a.9.9 0 0 0 0-.8c-.1-.2-.8-2-1.2-2.7-.3-.7-.6-.6-.8-.6h-.7a1.4 1.4 0 0 0-1 .5 4.3 4.3 0 0 0-1.3 3.2 7.5 7.5 0 0 0 1.6 4 17.2 17.2 0 0 0 6.6 5.8c3.9 1.5 3.9 1 4.6 1a3.9 3.9 0 0 0 2.6-1.8 3.2 3.2 0 0 0 .2-1.8c-.1-.2-.4-.3-.7-.5z"/>
+  </svg>
+</a>
 </body>
 </html>
