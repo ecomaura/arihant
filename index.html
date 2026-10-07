@@ -927,6 +927,22 @@
       margin-top: 16px;
     }
 
+    .director-cell {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.director-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-gold);
+  box-shadow: 0 2px 8px rgba(0, 43, 36, 0.12);
+  flex-shrink: 0;
+}
+
     .glance-table tr {
       border-bottom: 1px solid var(--color-border);
     }
@@ -1680,9 +1696,22 @@
                               <td class="glance-value"><strong>Aarhat Group LLP</strong><br>(Integrated Solution)</td>
                             </tr>
                             <tr>
-                              <td class="glance-label">DIRECTOR</td>
-                              <td class="glance-value">Rohit Tambe</td>
-                            </tr>
+  <td class="glance-label">DIRECTOR</td>
+  <td class="glance-value">
+    <div class="director-cell">
+      <img 
+        src="images/BackgroundEraser_20240717_092019168.jpg" 
+        alt="Rohit Tambe - Director, Aarhat Group LLP" 
+        class="director-avatar"
+        loading="lazy"
+      >
+      <div>
+        <strong>Rohit Tambe</strong>
+        <div style="font-size: 0.8rem; color: var(--color-text-soft);">Director & Head of Operations</div>
+      </div>
+    </div>
+  </td>
+</tr>
                             <tr>
                               <td class="glance-label">HEAD OFFICE</td>
                               <td class="glance-value">616 Ratnadeep Society, Kailash Complex, Vikhroli West, Mumbai - 400079</td>
