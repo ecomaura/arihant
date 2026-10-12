@@ -305,41 +305,39 @@
       gap: 16px;
     }
 
- .brand-logo-wrap {
+.brand-logo-wrap {
   display: flex;
   align-items: center;
   text-decoration: none;
   flex-shrink: 0;
-  max-width: 78%; /* Ensures it stays large without pushing the hamburger button */
+  max-width: 78%;
   height: 100%;
 }
 
 .brand-logo-img {
-  height: 76px !important;       /* Large and clear on mobile phones */
+  height: 82px !important;
   width: auto !important;
   max-width: 260px !important;
   object-fit: contain;
   display: block;
-  transition: height 0.25s ease;
+  aspect-ratio: auto;
+  /* Disable transition on page load to eliminate shrink/expand jump */
+  transition: none;
 }
 
-/* Tablet & Desktop sizing */
+/* Tablet & Desktop */
 @media (min-width: 768px) {
   .brand-logo-img {
-    height: 86px !important;    /* Proportional on desktop */
+    height: 86px !important;
     max-width: 320px !important;
   }
 }
 
-/* Scrolled state sizing */
+/* Only enable smooth transition when user is actively scrolling */
 .site-header.scrolled .brand-logo-img {
   height: 62px !important;
+  transition: height 0.25s ease;
 }
-
-    .site-header.scrolled .brand-logo-img {
-  height: 64px;                    /* Increased from 54px */
-}
-
     .brand-logo-wrap span.sr-only {
       position: absolute;
       width: 1px;
@@ -1208,7 +1206,9 @@
     src="images/Screenshot_2026-09-28-15-56-04-29_e2d5b3f32b79de1d45acd1fad96fbb0f~2.jpg" 
     alt="Aarhat Group LLP" 
     class="brand-logo-img"
+    height="76"
     loading="eager"
+    fetchpriority="high"
   >
   <span class="sr-only">Aarhat Group LLP</span>
 </a>
